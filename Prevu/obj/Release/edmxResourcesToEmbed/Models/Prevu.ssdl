@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prevuModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="prevuModelStoreContainer">
+    <EntitySet Name="test" EntityType="prevuModel.Store.test" store:Type="Tables" Schema="prevu" />
+  </EntityContainer>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="idtest" />
+    </Key>
+    <Property Name="idtest" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

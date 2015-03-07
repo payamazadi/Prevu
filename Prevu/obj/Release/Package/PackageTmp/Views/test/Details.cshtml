@@ -1,0 +1,22 @@
+﻿@model Prevu.Models.test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>test</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idtest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idtest)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

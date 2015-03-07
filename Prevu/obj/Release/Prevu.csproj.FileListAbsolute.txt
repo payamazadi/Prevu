@@ -24,3 +24,36 @@ C:\Users\Valued Customer\Documents\GitHub\Prevu\Prevu\bin\System.Web.WebPages.Ra
 C:\Users\Valued Customer\Documents\GitHub\Prevu\Prevu\obj\Release\Prevu.csprojResolveAssemblyReference.cache
 C:\Users\Valued Customer\Documents\GitHub\Prevu\Prevu\obj\Release\Prevu.dll
 C:\Users\Valued Customer\Documents\GitHub\Prevu\Prevu\obj\Release\Prevu.pdb
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Prevu.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Prevu.pdb
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Antlr3.Runtime.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Newtonsoft.Json.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Helpers.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Mvc.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Optimization.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Razor.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.Deployment.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.Razor.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\WebGrease.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Antlr3.Runtime.pdb
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Newtonsoft.Json.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Optimization.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Helpers.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Mvc.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Razor.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.Deployment.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.WebPages.Razor.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\obj\Release\Prevu.csprojResolveAssemblyReference.cache
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\obj\Release\Prevu.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\obj\Release\Prevu.pdb
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.WebHost.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.WebHost.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Net.Http.Formatting.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Net.Http.Formatting.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\EntityFramework.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\EntityFramework.xml

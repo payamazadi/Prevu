@@ -48,3 +48,11 @@ C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Optimization.dll
 C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\WebGrease.dll
 C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\Antlr3.Runtime.pdb
 C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Optimization.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.WebHost.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.WebHost.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Web.Http.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Net.Http.Formatting.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\System.Net.Http.Formatting.xml
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\EntityFramework.dll
+C:\Users\azadi\SkyDrive\Github\Prevu\Prevu\bin\EntityFramework.xml

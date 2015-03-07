@@ -1,0 +1,35 @@
+﻿@model Prevu.Models.test
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>test</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idtest)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idtest)
+            @Html.ValidationMessageFor(model => model.idtest)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
