@@ -1,4 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PrevuModelStoreContainer" CdmEntityContainer="PrevuEntities" />
+  <EntityContainerMapping StorageEntityContainer="PrevuModelStoreContainer" CdmEntityContainer="PrevuEntities">
+    <EntitySetMapping Name="Actors">
+      <EntityTypeMapping TypeName="PrevuModel.Actor">
+        <MappingFragment StoreEntitySet="Actors">
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="GlobalInfluence" ColumnName="GlobalInfluence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActorChildren" TypeName="PrevuModel.ActorChildren" StoreEntitySet="ActorChildren">
+      <EndProperty Name="Actors">
+        <ScalarProperty Name="ActorId" ColumnName="ActorIdB" />
+      </EndProperty>
+      <EndProperty Name="Actors1">
+        <ScalarProperty Name="ActorId" ColumnName="ActorIdA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ActorTypes">
+      <EntityTypeMapping TypeName="PrevuModel.ActorType">
+        <MappingFragment StoreEntitySet="ActorTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping>

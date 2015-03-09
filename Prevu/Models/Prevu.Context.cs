@@ -25,5 +25,7 @@ namespace Prevu.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Actor> Actors { get; set; }
+        public DbSet<ActorType> ActorTypes { get; set; }
     }
 }

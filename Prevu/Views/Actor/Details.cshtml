@@ -1,0 +1,61 @@
+﻿@model Prevu.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Actor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateModified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateModified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ActorTypeId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActorTypeId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Active)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GlobalInfluence)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GlobalInfluence)
+    </div>
+</fieldset>
+
+@ViewBag.Children
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ActorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

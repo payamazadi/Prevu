@@ -6,19 +6,178 @@
     <edmx:StorageModels>
     <Schema Namespace="PrevuModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="PrevuModelStoreContainer">
+          <EntitySet Name="ActorChildren" EntityType="PrevuModel.Store.ActorChildren" store:Type="Tables" Schema="prevu" />
+          <EntitySet Name="Actors" EntityType="PrevuModel.Store.Actors" store:Type="Tables" Schema="prevu" />
+          <EntitySet Name="ActorTypes" EntityType="PrevuModel.Store.ActorTypes" store:Type="Tables" Schema="prevu" />
+          <AssociationSet Name="ActorTypes1" Association="PrevuModel.Store.ActorTypes1">
+            <End Role="ActorTypes" EntitySet="ActorTypes" />
+            <End Role="Actors" EntitySet="Actors" />
+          </AssociationSet>
+          <AssociationSet Name="Child" Association="PrevuModel.Store.Child">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorChildren" EntitySet="ActorChildren" />
+          </AssociationSet>
+          <AssociationSet Name="Parent" Association="PrevuModel.Store.Parent">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorChildren" EntitySet="ActorChildren" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ActorChildren">
+          <Key>
+            <PropertyRef Name="ActorIdA" />
+            <PropertyRef Name="ActorIdB" />
+          </Key>
+          <Property Name="ActorIdA" Type="int" Nullable="false" />
+          <Property Name="ActorIdB" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Actors">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="ActorTypeId" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="GlobalInfluence" Type="int" />
+        </EntityType>
+        <EntityType Name="ActorTypes">
+          <Key>
+            <PropertyRef Name="ActorTypeId" />
+          </Key>
+          <Property Name="ActorTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <Association Name="ActorTypes1">
+          <End Role="ActorTypes" Type="PrevuModel.Store.ActorTypes" Multiplicity="0..1" />
+          <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActorTypes">
+              <PropertyRef Name="ActorTypeId" />
+            </Principal>
+            <Dependent Role="Actors">
+              <PropertyRef Name="ActorTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Child">
+          <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+          <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="ActorId" />
+            </Principal>
+            <Dependent Role="ActorChildren">
+              <PropertyRef Name="ActorIdB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Parent">
+          <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+          <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="ActorId" />
+            </Principal>
+            <Dependent Role="ActorChildren">
+              <PropertyRef Name="ActorIdA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PrevuModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PrevuEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Actors" EntityType="PrevuModel.Actor" />
+          <AssociationSet Name="ActorChildren" Association="PrevuModel.ActorChildren">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="Actors1" EntitySet="Actors" />
+          </AssociationSet>
+          <EntitySet Name="ActorTypes" EntityType="PrevuModel.ActorType" />
+          <AssociationSet Name="ActorTypes1" Association="PrevuModel.ActorTypes1">
+            <End Role="ActorType" EntitySet="ActorTypes" />
+            <End Role="Actor" EntitySet="Actors" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="ActorId" />
+          </Key>
+          <Property Name="ActorId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateModified" Type="DateTime" Precision="0" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ActorTypeId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="GlobalInfluence" Type="Int32" />
+          <NavigationProperty Name="Actors1" Relationship="PrevuModel.ActorChildren" FromRole="Actors" ToRole="Actors1" />
+          <NavigationProperty Name="Actors" Relationship="PrevuModel.ActorChildren" FromRole="Actors1" ToRole="Actors" />
+          <NavigationProperty Name="ActorType" Relationship="PrevuModel.ActorTypes1" FromRole="Actor" ToRole="ActorType" />
+        </EntityType>
+        <Association Name="ActorChildren">
+          <End Role="Actors" Type="PrevuModel.Actor" Multiplicity="*" />
+          <End Role="Actors1" Type="PrevuModel.Actor" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ActorType">
+          <Key>
+            <PropertyRef Name="ActorTypeId" />
+          </Key>
+          <Property Type="Int32" Name="ActorTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Actors" Relationship="PrevuModel.ActorTypes1" FromRole="ActorType" ToRole="Actor" />
+        </EntityType>
+        <Association Name="ActorTypes1">
+          <End Type="PrevuModel.ActorType" Role="ActorType" Multiplicity="0..1" />
+          <End Type="PrevuModel.Actor" Role="Actor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActorType">
+              <PropertyRef Name="ActorTypeId" />
+            </Principal>
+            <Dependent Role="Actor">
+              <PropertyRef Name="ActorTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PrevuModelStoreContainer" CdmEntityContainer="PrevuEntities">
+          <EntitySetMapping Name="Actors">
+            <EntityTypeMapping TypeName="PrevuModel.Actor">
+              <MappingFragment StoreEntitySet="Actors">
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="GlobalInfluence" ColumnName="GlobalInfluence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActorChildren" TypeName="PrevuModel.ActorChildren" StoreEntitySet="ActorChildren">
+            <EndProperty Name="Actors">
+              <ScalarProperty Name="ActorId" ColumnName="ActorIdB" />
+            </EndProperty>
+            <EndProperty Name="Actors1">
+              <ScalarProperty Name="ActorId" ColumnName="ActorIdA" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="ActorTypes">
+            <EntityTypeMapping TypeName="PrevuModel.ActorType">
+              <MappingFragment StoreEntitySet="ActorTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

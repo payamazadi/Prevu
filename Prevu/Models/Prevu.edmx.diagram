@@ -4,7 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bf50def260fc40ee9ff23f443f2f08e9" Name="Diagram1">
+      <Diagram DiagramId="b4d1d5ada0704da4ba90f456803393c2" Name="Diagram1">
+        <EntityTypeShape EntityType="PrevuModel.Actor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="PrevuModel.ActorChildren" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PrevuModel.ActorType" Width="1.5" PointX="9.0188795649534459" PointY="23.955524753758464" />
+        <AssociationConnector Association="PrevuModel.ActorTypes1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
