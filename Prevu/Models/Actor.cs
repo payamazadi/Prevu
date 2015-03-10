@@ -16,20 +16,30 @@ namespace Prevu.Models
     {
         public Actor()
         {
-            this.Actors1 = new HashSet<Actor>();
-            this.Actors = new HashSet<Actor>();
+            this.ParentActors = new HashSet<Actor>();
+            this.ChildActors = new HashSet<Actor>();
+            this.ActorIssueOpinions = new HashSet<ActorIssueOpinion>();
+            this.AskActors = new HashSet<AskActor>();
+            this.OpportunityActors = new HashSet<OpportunityActor>();
+            this.EventActorAsks = new HashSet<EventActorAsk>();
+            this.EventActors = new HashSet<EventActor>();
         }
     
         public int ActorId { get; set; }
         public System.DateTime DateCreated { get; set; }
-        public Nullable<System.DateTime> DateModified { get; set; }
+        public System.DateTime DateModified { get; set; }
         public string Name { get; set; }
         public Nullable<int> ActorTypeId { get; set; }
         public Nullable<bool> Active { get; set; }
         public Nullable<int> GlobalInfluence { get; set; }
     
-        public virtual ICollection<Actor> Actors1 { get; set; }
-        public virtual ICollection<Actor> Actors { get; set; }
+        public virtual ICollection<Actor> ParentActors { get; set; }
+        public virtual ICollection<Actor> ChildActors { get; set; }
+        public virtual ICollection<ActorIssueOpinion> ActorIssueOpinions { get; set; }
+        public virtual ICollection<AskActor> AskActors { get; set; }
         public virtual ActorType ActorType { get; set; }
+        public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
+        public virtual ICollection<EventActorAsk> EventActorAsks { get; set; }
+        public virtual ICollection<EventActor> EventActors { get; set; }
     }
 }

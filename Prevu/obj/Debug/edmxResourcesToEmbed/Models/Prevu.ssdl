@@ -2,28 +2,150 @@
 <Schema Namespace="PrevuModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="PrevuModelStoreContainer">
     <EntitySet Name="ActorChildren" EntityType="PrevuModel.Store.ActorChildren" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="ActorIssueOpinion" EntityType="PrevuModel.Store.ActorIssueOpinion" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="Actors" EntityType="PrevuModel.Store.Actors" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="ActorTypes" EntityType="PrevuModel.Store.ActorTypes" store:Type="Tables" Schema="prevu" />
-    <AssociationSet Name="ActorTypes1" Association="PrevuModel.Store.ActorTypes1">
+    <EntitySet Name="AskActor" EntityType="PrevuModel.Store.AskActor" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="AskObjectives" EntityType="PrevuModel.Store.AskObjectives" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Asks" EntityType="PrevuModel.Store.Asks" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="AskStatuses" EntityType="PrevuModel.Store.AskStatuses" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="EventActorAsks" EntityType="PrevuModel.Store.EventActorAsks" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="EventActors" EntityType="PrevuModel.Store.EventActors" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Events" EntityType="PrevuModel.Store.Events" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="EventStatus" EntityType="PrevuModel.Store.EventStatus" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Issues" EntityType="PrevuModel.Store.Issues" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Objectives" EntityType="PrevuModel.Store.Objectives" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="ObjectiveStatuses" EntityType="PrevuModel.Store.ObjectiveStatuses" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Opinions" EntityType="PrevuModel.Store.Opinions" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Opportunities" EntityType="PrevuModel.Store.Opportunities" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="OpportunityActors" EntityType="PrevuModel.Store.OpportunityActors" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Staff" EntityType="PrevuModel.Store.Staff" store:Type="Tables" Schema="prevu" />
+    <AssociationSet Name="ActorFk" Association="PrevuModel.Store.ActorFk">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="AskActor" EntitySet="AskActor" />
+    </AssociationSet>
+    <AssociationSet Name="ActorFkWtf" Association="PrevuModel.Store.ActorFkWtf">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="EventActorAsks" EntitySet="EventActorAsks" />
+    </AssociationSet>
+    <AssociationSet Name="ActorsFk" Association="PrevuModel.Store.ActorsFk">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="ActorIssueOpinion" EntitySet="ActorIssueOpinion" />
+    </AssociationSet>
+    <AssociationSet Name="ActorTypesFk" Association="PrevuModel.Store.ActorTypesFk">
       <End Role="ActorTypes" EntitySet="ActorTypes" />
       <End Role="Actors" EntitySet="Actors" />
     </AssociationSet>
-    <AssociationSet Name="Child" Association="PrevuModel.Store.Child">
+    <AssociationSet Name="AskFk" Association="PrevuModel.Store.AskFk">
+      <End Role="Asks" EntitySet="Asks" />
+      <End Role="AskActor" EntitySet="AskActor" />
+    </AssociationSet>
+    <AssociationSet Name="AskFkWtf" Association="PrevuModel.Store.AskFkWtf">
+      <End Role="Asks" EntitySet="Asks" />
+      <End Role="EventActorAsks" EntitySet="EventActorAsks" />
+    </AssociationSet>
+    <AssociationSet Name="AsksFk" Association="PrevuModel.Store.AsksFk">
+      <End Role="Asks" EntitySet="Asks" />
+      <End Role="AskObjectives" EntitySet="AskObjectives" />
+    </AssociationSet>
+    <AssociationSet Name="AskStatusFk" Association="PrevuModel.Store.AskStatusFk">
+      <End Role="AskStatuses" EntitySet="AskStatuses" />
+      <End Role="Asks" EntitySet="Asks" />
+    </AssociationSet>
+    <AssociationSet Name="ChildFk" Association="PrevuModel.Store.ChildFk">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="ActorChildren" EntitySet="ActorChildren" />
     </AssociationSet>
-    <AssociationSet Name="Parent" Association="PrevuModel.Store.Parent">
+    <AssociationSet Name="EventFk" Association="PrevuModel.Store.EventFk">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventActorAsks" EntitySet="EventActorAsks" />
+    </AssociationSet>
+    <AssociationSet Name="EventStatusFk" Association="PrevuModel.Store.EventStatusFk">
+      <End Role="EventStatus" EntitySet="EventStatus" />
+      <End Role="EventActors" EntitySet="EventActors" />
+    </AssociationSet>
+    <AssociationSet Name="EventStatusFkWtf" Association="PrevuModel.Store.EventStatusFkWtf">
+      <End Role="EventStatus" EntitySet="EventStatus" />
+      <End Role="Opportunities" EntitySet="Opportunities" />
+    </AssociationSet>
+    <AssociationSet Name="Issues1" Association="PrevuModel.Store.Issues1">
+      <End Role="Issues" EntitySet="Issues" />
+      <End Role="Objectives" EntitySet="Objectives" />
+    </AssociationSet>
+    <AssociationSet Name="IssuesFk" Association="PrevuModel.Store.IssuesFk">
+      <End Role="Issues" EntitySet="Issues" />
+      <End Role="ActorIssueOpinion" EntitySet="ActorIssueOpinion" />
+    </AssociationSet>
+    <AssociationSet Name="ObjectiveFk" Association="PrevuModel.Store.ObjectiveFk">
+      <End Role="Objectives" EntitySet="Objectives" />
+      <End Role="AskObjectives" EntitySet="AskObjectives" />
+    </AssociationSet>
+    <AssociationSet Name="ObjectiveStatusFk" Association="PrevuModel.Store.ObjectiveStatusFk">
+      <End Role="ObjectiveStatuses" EntitySet="ObjectiveStatuses" />
+      <End Role="Objectives" EntitySet="Objectives" />
+    </AssociationSet>
+    <AssociationSet Name="OpinionFk" Association="PrevuModel.Store.OpinionFk">
+      <End Role="Opinions" EntitySet="Opinions" />
+      <End Role="ActorIssueOpinion" EntitySet="ActorIssueOpinion" />
+    </AssociationSet>
+    <AssociationSet Name="OpinionsFk" Association="PrevuModel.Store.OpinionsFk">
+      <End Role="Opinions" EntitySet="Opinions" />
+      <End Role="AskActor" EntitySet="AskActor" />
+    </AssociationSet>
+    <AssociationSet Name="OwnerFk" Association="PrevuModel.Store.OwnerFk">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Asks" EntitySet="Asks" />
+    </AssociationSet>
+    <AssociationSet Name="ParentFk" Association="PrevuModel.Store.ParentFk">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="ActorChildren" EntitySet="ActorChildren" />
+    </AssociationSet>
+    <AssociationSet Name="TheActorFk" Association="PrevuModel.Store.TheActorFk">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="EventActors" EntitySet="EventActors" />
+    </AssociationSet>
+    <AssociationSet Name="TheActorFkWtf" Association="PrevuModel.Store.TheActorFkWtf">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="OpportunityActors" EntitySet="OpportunityActors" />
+    </AssociationSet>
+    <AssociationSet Name="TheEventFk" Association="PrevuModel.Store.TheEventFk">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventActors" EntitySet="EventActors" />
+    </AssociationSet>
+    <AssociationSet Name="TheEventStatusFkWtf" Association="PrevuModel.Store.TheEventStatusFkWtf">
+      <End Role="EventStatus" EntitySet="EventStatus" />
+      <End Role="OpportunityActors" EntitySet="OpportunityActors" />
+    </AssociationSet>
+    <AssociationSet Name="TheOpportunityFk" Association="PrevuModel.Store.TheOpportunityFk">
+      <End Role="Opportunities" EntitySet="Opportunities" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="TheOpportunityFkWtf" Association="PrevuModel.Store.TheOpportunityFkWtf">
+      <End Role="Opportunities" EntitySet="Opportunities" />
+      <End Role="OpportunityActors" EntitySet="OpportunityActors" />
+    </AssociationSet>
+    <AssociationSet Name="TheOwnerFk" Association="PrevuModel.Store.TheOwnerFk">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Issues" EntitySet="Issues" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActorChildren">
     <Key>
-      <PropertyRef Name="ActorIdA" />
-      <PropertyRef Name="ActorIdB" />
+      <PropertyRef Name="ParentActorId" />
+      <PropertyRef Name="ChildActorId" />
     </Key>
-    <Property Name="ActorIdA" Type="int" Nullable="false" />
-    <Property Name="ActorIdB" Type="int" Nullable="false" />
+    <Property Name="ParentActorId" Type="int" Nullable="false" />
+    <Property Name="ChildActorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActorIssueOpinion">
+    <Key>
+      <PropertyRef Name="ActorId" />
+      <PropertyRef Name="IssueId" />
+    </Key>
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="IssueId" Type="int" Nullable="false" />
+    <Property Name="OpinionId" Type="int" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Actors">
     <Key>
@@ -31,7 +153,7 @@
     </Key>
     <Property Name="ActorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
-    <Property Name="DateModified" Type="datetime" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="ActorTypeId" Type="int" />
     <Property Name="Active" Type="bit" />
@@ -45,7 +167,205 @@
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
-  <Association Name="ActorTypes1">
+  <EntityType Name="AskActor">
+    <Key>
+      <PropertyRef Name="AskId" />
+      <PropertyRef Name="ActorId" />
+    </Key>
+    <Property Name="AskId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="OpinionId" Type="int" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AskObjectives">
+    <Key>
+      <PropertyRef Name="AskId" />
+      <PropertyRef Name="ObjectiveId" />
+    </Key>
+    <Property Name="AskId" Type="int" Nullable="false" />
+    <Property Name="ObjectiveId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Asks">
+    <Key>
+      <PropertyRef Name="AskId" />
+    </Key>
+    <Property Name="AskId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="TargetDate" Type="datetime" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="AskStatusId" Type="int" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="Notes" Type="longtext" />
+  </EntityType>
+  <EntityType Name="AskStatuses">
+    <Key>
+      <PropertyRef Name="AskStatusId" />
+    </Key>
+    <Property Name="AskStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="EventActorAsks">
+    <Key>
+      <PropertyRef Name="EventId" />
+      <PropertyRef Name="ActorId" />
+      <PropertyRef Name="AskId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="AskId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventActors">
+    <Key>
+      <PropertyRef Name="EventId" />
+      <PropertyRef Name="ActorId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="EventStatusId" Type="int" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OpportunityId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="EventStatusId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="longtext" />
+  </EntityType>
+  <EntityType Name="EventStatus">
+    <Key>
+      <PropertyRef Name="EventStatusId" />
+    </Key>
+    <Property Name="EventStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Issues">
+    <Key>
+      <PropertyRef Name="IssueId" />
+    </Key>
+    <Property Name="IssueId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="InPurview" Type="bit" Nullable="false" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="Notes" Type="longtext" />
+  </EntityType>
+  <EntityType Name="Objectives">
+    <Key>
+      <PropertyRef Name="ObjectiveId" />
+    </Key>
+    <Property Name="ObjectiveId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IssueId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="TargetDate" Type="datetime" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ObjectiveStatusId" Type="int" Nullable="false" />
+    <Property Name="BlockedObjectiveId" Type="int" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="Notes" Type="longtext" />
+  </EntityType>
+  <EntityType Name="ObjectiveStatuses">
+    <Key>
+      <PropertyRef Name="ObjectiveStatusId" />
+    </Key>
+    <Property Name="ObjectiveStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Opinions">
+    <Key>
+      <PropertyRef Name="OpinionId" />
+    </Key>
+    <Property Name="OpinionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Value" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Opportunities">
+    <Key>
+      <PropertyRef Name="OpportunityId" />
+    </Key>
+    <Property Name="OpportunityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Importance" Type="varchar" MaxLength="45" />
+    <Property Name="EventStatusId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="longtext" />
+  </EntityType>
+  <EntityType Name="OpportunityActors">
+    <Key>
+      <PropertyRef Name="OpportunityId" />
+      <PropertyRef Name="ActorId" />
+    </Key>
+    <Property Name="OpportunityId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="EventStatusId" Type="int" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Phone1" Type="varchar" MaxLength="45" />
+    <Property Name="Phone2" Type="varchar" MaxLength="45" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="ActorFk">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="AskActor" Type="PrevuModel.Store.AskActor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="AskActor">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActorFkWtf">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="EventActorAsks">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActorsFk">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="ActorIssueOpinion" Type="PrevuModel.Store.ActorIssueOpinion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="ActorIssueOpinion">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActorTypesFk">
     <End Role="ActorTypes" Type="PrevuModel.Store.ActorTypes" Multiplicity="0..1" />
     <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="*" />
     <ReferentialConstraint>
@@ -57,19 +377,55 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Child">
-    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
-    <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
+  <Association Name="AskFk">
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="1" />
+    <End Role="AskActor" Type="PrevuModel.Store.AskActor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Actors">
-        <PropertyRef Name="ActorId" />
+      <Principal Role="Asks">
+        <PropertyRef Name="AskId" />
       </Principal>
-      <Dependent Role="ActorChildren">
-        <PropertyRef Name="ActorIdB" />
+      <Dependent Role="AskActor">
+        <PropertyRef Name="AskId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Parent">
+  <Association Name="AskFkWtf">
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="1" />
+    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asks">
+        <PropertyRef Name="AskId" />
+      </Principal>
+      <Dependent Role="EventActorAsks">
+        <PropertyRef Name="AskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AsksFk">
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="1" />
+    <End Role="AskObjectives" Type="PrevuModel.Store.AskObjectives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Asks">
+        <PropertyRef Name="AskId" />
+      </Principal>
+      <Dependent Role="AskObjectives">
+        <PropertyRef Name="AskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AskStatusFk">
+    <End Role="AskStatuses" Type="PrevuModel.Store.AskStatuses" Multiplicity="0..1" />
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AskStatuses">
+        <PropertyRef Name="AskStatusId" />
+      </Principal>
+      <Dependent Role="Asks">
+        <PropertyRef Name="AskStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChildFk">
     <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
     <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
     <ReferentialConstraint>
@@ -77,7 +433,223 @@
         <PropertyRef Name="ActorId" />
       </Principal>
       <Dependent Role="ActorChildren">
-        <PropertyRef Name="ActorIdA" />
+        <PropertyRef Name="ChildActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventFk">
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="1" />
+    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="EventActorAsks">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventStatusFk">
+    <End Role="EventStatus" Type="PrevuModel.Store.EventStatus" Multiplicity="1" />
+    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatus">
+        <PropertyRef Name="EventStatusId" />
+      </Principal>
+      <Dependent Role="EventActors">
+        <PropertyRef Name="EventStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventStatusFkWtf">
+    <End Role="EventStatus" Type="PrevuModel.Store.EventStatus" Multiplicity="1" />
+    <End Role="Opportunities" Type="PrevuModel.Store.Opportunities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatus">
+        <PropertyRef Name="EventStatusId" />
+      </Principal>
+      <Dependent Role="Opportunities">
+        <PropertyRef Name="EventStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Issues1">
+    <End Role="Issues" Type="PrevuModel.Store.Issues" Multiplicity="1" />
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issues">
+        <PropertyRef Name="IssueId" />
+      </Principal>
+      <Dependent Role="Objectives">
+        <PropertyRef Name="IssueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IssuesFk">
+    <End Role="Issues" Type="PrevuModel.Store.Issues" Multiplicity="1" />
+    <End Role="ActorIssueOpinion" Type="PrevuModel.Store.ActorIssueOpinion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issues">
+        <PropertyRef Name="IssueId" />
+      </Principal>
+      <Dependent Role="ActorIssueOpinion">
+        <PropertyRef Name="IssueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObjectiveFk">
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="1" />
+    <End Role="AskObjectives" Type="PrevuModel.Store.AskObjectives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Objectives">
+        <PropertyRef Name="ObjectiveId" />
+      </Principal>
+      <Dependent Role="AskObjectives">
+        <PropertyRef Name="ObjectiveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObjectiveStatusFk">
+    <End Role="ObjectiveStatuses" Type="PrevuModel.Store.ObjectiveStatuses" Multiplicity="1" />
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectiveStatuses">
+        <PropertyRef Name="ObjectiveStatusId" />
+      </Principal>
+      <Dependent Role="Objectives">
+        <PropertyRef Name="ObjectiveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OpinionFk">
+    <End Role="Opinions" Type="PrevuModel.Store.Opinions" Multiplicity="0..1" />
+    <End Role="ActorIssueOpinion" Type="PrevuModel.Store.ActorIssueOpinion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opinions">
+        <PropertyRef Name="OpinionId" />
+      </Principal>
+      <Dependent Role="ActorIssueOpinion">
+        <PropertyRef Name="OpinionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OpinionsFk">
+    <End Role="Opinions" Type="PrevuModel.Store.Opinions" Multiplicity="1" />
+    <End Role="AskActor" Type="PrevuModel.Store.AskActor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opinions">
+        <PropertyRef Name="OpinionId" />
+      </Principal>
+      <Dependent Role="AskActor">
+        <PropertyRef Name="OpinionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OwnerFk">
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Asks">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParentFk">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="ActorChildren">
+        <PropertyRef Name="ParentActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheActorFk">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="EventActors">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheActorFkWtf">
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="OpportunityActors" Type="PrevuModel.Store.OpportunityActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="OpportunityActors">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheEventFk">
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="1" />
+    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="EventActors">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheEventStatusFkWtf">
+    <End Role="EventStatus" Type="PrevuModel.Store.EventStatus" Multiplicity="0..1" />
+    <End Role="OpportunityActors" Type="PrevuModel.Store.OpportunityActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatus">
+        <PropertyRef Name="EventStatusId" />
+      </Principal>
+      <Dependent Role="OpportunityActors">
+        <PropertyRef Name="EventStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheOpportunityFk">
+    <End Role="Opportunities" Type="PrevuModel.Store.Opportunities" Multiplicity="1" />
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunities">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheOpportunityFkWtf">
+    <End Role="Opportunities" Type="PrevuModel.Store.Opportunities" Multiplicity="1" />
+    <End Role="OpportunityActors" Type="PrevuModel.Store.OpportunityActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Opportunities">
+        <PropertyRef Name="OpportunityId" />
+      </Principal>
+      <Dependent Role="OpportunityActors">
+        <PropertyRef Name="OpportunityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheOwnerFk">
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="Issues" Type="PrevuModel.Store.Issues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Issues">
+        <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

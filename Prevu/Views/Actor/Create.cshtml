@@ -37,10 +37,10 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ActorTypeId)
+            @Html.LabelFor(model => model.ActorTypeId, "ActorType")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ActorTypeId)
+            @Html.DropDownList("ActorTypeId", String.Empty)
             @Html.ValidationMessageFor(model => model.ActorTypeId)
         </div>
 

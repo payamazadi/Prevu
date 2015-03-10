@@ -26,6 +26,21 @@ namespace Prevu.Models
         }
     
         public DbSet<Actor> Actors { get; set; }
+        public DbSet<ActorIssueOpinion> ActorIssueOpinions { get; set; }
+        public DbSet<AskActor> AskActors { get; set; }
+        public DbSet<Ask> Asks { get; set; }
+        public DbSet<Issue> Issues { get; set; }
         public DbSet<ActorType> ActorTypes { get; set; }
+        public DbSet<Objective> Objectives { get; set; }
+        public DbSet<ObjectiveStatus> ObjectiveStatuses { get; set; }
+        public DbSet<Opportunity> Opportunities { get; set; }
+        public DbSet<OpportunityActor> OpportunityActors { get; set; }
+        public DbSet<AskStatus> AskStatuses { get; set; }
+        public DbSet<EventActorAsk> EventActorAsks { get; set; }
+        public DbSet<EventActor> EventActors { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<EventStatus> EventStatus1 { get; set; }
+        public DbSet<Opinion> Opinions { get; set; }
     }
 }

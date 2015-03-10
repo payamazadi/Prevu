@@ -31,10 +31,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ActorTypeId)
+         @Html.DisplayNameFor(model => model.ActorType.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ActorTypeId)
+        @Html.DisplayFor(model => model.ActorType.Name)
     </div>
 
     <div class="display-label">
@@ -52,9 +52,7 @@
     </div>
 </fieldset>
 
-@ViewBag.Children
-
-
+@ViewBag.children
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ActorId }) |
     @Html.ActionLink("Back to List", "Index")

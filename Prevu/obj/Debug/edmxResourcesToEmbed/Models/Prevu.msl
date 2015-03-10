@@ -4,30 +4,211 @@
     <EntitySetMapping Name="Actors">
       <EntityTypeMapping TypeName="PrevuModel.Actor">
         <MappingFragment StoreEntitySet="Actors">
-          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
-          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="GlobalInfluence" ColumnName="GlobalInfluence" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="ActorChildren" TypeName="PrevuModel.ActorChildren" StoreEntitySet="ActorChildren">
-      <EndProperty Name="Actors">
-        <ScalarProperty Name="ActorId" ColumnName="ActorIdB" />
+      <EndProperty Name="Actor1">
+        <ScalarProperty Name="ActorId" ColumnName="ParentActorId" />
       </EndProperty>
-      <EndProperty Name="Actors1">
-        <ScalarProperty Name="ActorId" ColumnName="ActorIdA" />
+      <EndProperty Name="Actor">
+        <ScalarProperty Name="ActorId" ColumnName="ChildActorId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ActorIssueOpinions">
+      <EntityTypeMapping TypeName="PrevuModel.ActorIssueOpinion">
+        <MappingFragment StoreEntitySet="ActorIssueOpinion">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="OpinionId" ColumnName="OpinionId" />
+          <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AskActors">
+      <EntityTypeMapping TypeName="PrevuModel.AskActor">
+        <MappingFragment StoreEntitySet="AskActor">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="OpinionId" ColumnName="OpinionId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="AskId" ColumnName="AskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asks">
+      <EntityTypeMapping TypeName="PrevuModel.Ask">
+        <MappingFragment StoreEntitySet="Asks">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AskStatusId" ColumnName="AskStatusId" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="AskId" ColumnName="AskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issues">
+      <EntityTypeMapping TypeName="PrevuModel.Issue">
+        <MappingFragment StoreEntitySet="Issues">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="InPurview" ColumnName="InPurview" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ActorTypes">
       <EntityTypeMapping TypeName="PrevuModel.ActorType">
         <MappingFragment StoreEntitySet="ActorTypes">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Objectives">
+      <EntityTypeMapping TypeName="PrevuModel.Objective">
+        <MappingFragment StoreEntitySet="Objectives">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="BlockedObjectiveId" ColumnName="BlockedObjectiveId" />
+          <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+          <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectiveStatuses">
+      <EntityTypeMapping TypeName="PrevuModel.ObjectiveStatus">
+        <MappingFragment StoreEntitySet="ObjectiveStatuses">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AskObjectives" TypeName="PrevuModel.AskObjectives" StoreEntitySet="AskObjectives">
+      <EndProperty Name="Objective">
+        <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+      </EndProperty>
+      <EndProperty Name="Ask">
+        <ScalarProperty Name="AskId" ColumnName="AskId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Opportunities">
+      <EntityTypeMapping TypeName="PrevuModel.Opportunity">
+        <MappingFragment StoreEntitySet="Opportunities">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="Importance" ColumnName="Importance" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpportunityActors">
+      <EntityTypeMapping TypeName="PrevuModel.OpportunityActor">
+        <MappingFragment StoreEntitySet="OpportunityActors">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AskStatuses">
+      <EntityTypeMapping TypeName="PrevuModel.AskStatus">
+        <MappingFragment StoreEntitySet="AskStatuses">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AskStatusId" ColumnName="AskStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActorAsks">
+      <EntityTypeMapping TypeName="PrevuModel.EventActorAsk">
+        <MappingFragment StoreEntitySet="EventActorAsks">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="AskId" ColumnName="AskId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventActors">
+      <EntityTypeMapping TypeName="PrevuModel.EventActor">
+        <MappingFragment StoreEntitySet="EventActors">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="PrevuModel.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="OpportunityId" ColumnName="OpportunityId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="PrevuModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventStatus1">
+      <EntityTypeMapping TypeName="PrevuModel.EventStatus">
+        <MappingFragment StoreEntitySet="EventStatus">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opinions">
+      <EntityTypeMapping TypeName="PrevuModel.Opinion">
+        <MappingFragment StoreEntitySet="Opinions">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OpinionId" ColumnName="OpinionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

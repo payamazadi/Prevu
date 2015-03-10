@@ -18,7 +18,8 @@ namespace Prevu.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Actors.ToList());
+            var actors = db.Actors.Include(a => a.ActorType);
+            return View(actors.ToList());
         }
 
         //
@@ -32,12 +33,34 @@ namespace Prevu.Controllers
                 return HttpNotFound();
             }
 
-            var children = actor.Actors.ToList();
+            /*Throwaway code for testing*/
             string temp = "";
-            foreach (var child in children)
-                temp += child.Name.ToString();
-            ViewBag.children = temp;
+            var parents = actor.ParentActors.ToList();
+            if (parents.Count > 0)
+            {
+                temp += "Member of:<br>";
+                foreach (var parent in parents)
+                    temp += parent.Name.ToString() + "<br>";
+            }
 
+            var children = actor.ChildActors.ToList();
+            if (children.Count > 0)
+            {
+                temp += "<br><br>Children:<br>";
+                foreach (var child in children)
+                    temp += child.Name.ToString() + "<br>";
+            }
+
+            ViewBag.children = temp;
+            /***/
+
+            
+            /*
+            db.Actors.Find(7).ChildActors.Add(db.Actors.Find(6));
+            db.SaveChanges();
+            */
+            
+             
             return View(actor);
         }
 
@@ -46,6 +69,7 @@ namespace Prevu.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name");
             return View();
         }
 
@@ -62,6 +86,7 @@ namespace Prevu.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
             return View(actor);
         }
 
@@ -75,6 +100,7 @@ namespace Prevu.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
             return View(actor);
         }
 
@@ -90,6 +116,7 @@ namespace Prevu.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
             return View(actor);
         }
 

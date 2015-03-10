@@ -4,11 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b4d1d5ada0704da4ba90f456803393c2" Name="Diagram1">
-        <EntityTypeShape EntityType="PrevuModel.Actor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="PrevuModel.ActorChildren" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PrevuModel.ActorType" Width="1.5" PointX="9.0188795649534459" PointY="23.955524753758464" />
-        <AssociationConnector Association="PrevuModel.ActorTypes1" />
+      <Diagram DiagramId="b4d1d5ada0704da4ba90f456803393c2" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="PrevuModel.Actor" Width="1.5" PointX="42.5" PointY="109" />
+        <AssociationConnector Association="PrevuModel.ActorChildren" />
+        <EntityTypeShape EntityType="PrevuModel.ActorIssueOpinion" Width="1.5" PointX="45" PointY="110.625" />
+        <EntityTypeShape EntityType="PrevuModel.AskActor" Width="1.5" PointX="42.125" PointY="105.375" />
+        <EntityTypeShape EntityType="PrevuModel.Ask" Width="1.5" PointX="38.75" PointY="104.5" />
+        <EntityTypeShape EntityType="PrevuModel.Issue" Width="1.5" PointX="47.875" PointY="110" />
+        <AssociationConnector Association="PrevuModel.ActorsFk" />
+        <AssociationConnector Association="PrevuModel.IssuesFk" />
+        <AssociationConnector Association="PrevuModel.ActorFk" />
+        <AssociationConnector Association="PrevuModel.AskFk" />
+        <EntityTypeShape EntityType="PrevuModel.ActorType" Width="1.5" PointX="40.625" PointY="109.125" />
+        <EntityTypeShape EntityType="PrevuModel.Objective" Width="1.5" PointX="46" PointY="100.25" />
+        <EntityTypeShape EntityType="PrevuModel.ObjectiveStatus" Width="1.5" PointX="47.75" PointY="100.5" />
+        <AssociationConnector Association="PrevuModel.ActorTypesFk" />
+        <AssociationConnector Association="PrevuModel.Issues1" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="PrevuModel.ObjectiveStatusFk" />
+        <AssociationConnector Association="PrevuModel.AskObjectives" />
+        <EntityTypeShape EntityType="PrevuModel.Opportunity" Width="1.5" PointX="45.75" PointY="115" />
+        <EntityTypeShape EntityType="PrevuModel.OpportunityActor" Width="1.5" PointX="50.125" PointY="112.375" />
+        <AssociationConnector Association="PrevuModel.TheActorFkWtf" />
+        <AssociationConnector Association="PrevuModel.TheOpportunityFkWtf" />
+        <EntityTypeShape EntityType="PrevuModel.AskStatus" Width="1.5" PointX="36.375" PointY="105.5" />
+        <AssociationConnector Association="PrevuModel.AskStatusFk" />
+        <EntityTypeShape EntityType="PrevuModel.EventActorAsk" Width="1.5" PointX="39" PointY="110.625" />
+        <EntityTypeShape EntityType="PrevuModel.EventActor" Width="1.5" PointX="42.25" PointY="114.125" />
+        <EntityTypeShape EntityType="PrevuModel.Event" Width="1.5" PointX="39.5" PointY="116" />
+        <AssociationConnector Association="PrevuModel.ActorFkWtf" />
+        <AssociationConnector Association="PrevuModel.TheActorFk" />
+        <AssociationConnector Association="PrevuModel.AskFkWtf" />
+        <AssociationConnector Association="PrevuModel.EventFk" />
+        <AssociationConnector Association="PrevuModel.TheEventFk" />
+        <AssociationConnector Association="PrevuModel.TheOpportunityFk" />
+        <EntityTypeShape EntityType="PrevuModel.Staff" Width="1.5" PointX="45.5" PointY="104.625" />
+        <AssociationConnector Association="PrevuModel.OwnerFk" />
+        <AssociationConnector Association="PrevuModel.TheOwnerFk" />
+        <EntityTypeShape EntityType="PrevuModel.EventStatus" Width="1.5" PointX="48" PointY="114.5" />
+        <AssociationConnector Association="PrevuModel.EventStatusFk" />
+        <AssociationConnector Association="PrevuModel.EventStatusFkWtf" />
+        <AssociationConnector Association="PrevuModel.TheEventStatusFkWtf" />
+        <EntityTypeShape EntityType="PrevuModel.Opinion" Width="1.5" PointX="44.25" PointY="108.375" />
+        <AssociationConnector Association="PrevuModel.OpinionFk" />
+        <AssociationConnector Association="PrevuModel.OpinionsFk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

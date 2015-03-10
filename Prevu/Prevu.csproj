@@ -133,7 +133,49 @@
     <Compile Include="Models\Actor.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActorIssueOpinion.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ActorType.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ask.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AskActor.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AskStatus.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventActor.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventActorAsk.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventStatus.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Issue.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Objective.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ObjectiveStatus.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Opinion.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Opportunity.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OpportunityActor.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Prevu.Context.cs">
@@ -150,6 +192,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Prevu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Staff.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
