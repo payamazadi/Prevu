@@ -33,7 +33,7 @@ namespace Prevu.Models
     
         public virtual ICollection<EventActor> EventActors { get; set; }
         public virtual Opportunity Opportunity { get; set; }
-        public virtual EventStatu EventStatu { get; set; }
+        public virtual EventStatus EventStatu { get; set; }
         public virtual Staff Staff { get; set; }
     }
 }

@@ -735,11 +735,11 @@
           <EntitySet Name="AskActors" EntityType="PrevuModel.AskActor" />
           <EntitySet Name="Asks" EntityType="PrevuModel.Ask" />
           <EntitySet Name="AskStatuses" EntityType="PrevuModel.AskStatus" />
-          <EntitySet Name="AttendanceStatus" EntityType="PrevuModel.AttendanceStatu" />
+          <EntitySet Name="AttendanceStatus1" EntityType="PrevuModel.AttendanceStatus" />
           <EntitySet Name="EventActorAsks" EntityType="PrevuModel.EventActorAsk" />
           <EntitySet Name="EventActors" EntityType="PrevuModel.EventActor" />
           <EntitySet Name="Events" EntityType="PrevuModel.Event" />
-          <EntitySet Name="EventStatus" EntityType="PrevuModel.EventStatu" />
+          <EntitySet Name="EventStatus1" EntityType="PrevuModel.EventStatus" />
           <EntitySet Name="Issues" EntityType="PrevuModel.Issue" />
           <EntitySet Name="Objectives" EntityType="PrevuModel.Objective" />
           <EntitySet Name="ObjectiveStatuses" EntityType="PrevuModel.ObjectiveStatus" />
@@ -796,11 +796,11 @@
             <End Role="Ask" EntitySet="Asks" />
           </AssociationSet>
           <AssociationSet Name="AttendanceStatusFk" Association="PrevuModel.AttendanceStatusFk">
-            <End Role="AttendanceStatu" EntitySet="AttendanceStatus" />
+            <End Role="AttendanceStatu" EntitySet="AttendanceStatus1" />
             <End Role="OpportunityActor" EntitySet="OpportunityActors" />
           </AssociationSet>
           <AssociationSet Name="AttendingStatusFk" Association="PrevuModel.AttendingStatusFk">
-            <End Role="AttendanceStatu" EntitySet="AttendanceStatus" />
+            <End Role="AttendanceStatu" EntitySet="AttendanceStatus1" />
             <End Role="EventActor" EntitySet="EventActors" />
           </AssociationSet>
           <AssociationSet Name="EventActorFk" Association="PrevuModel.EventActorFk">
@@ -816,7 +816,7 @@
             <End Role="Event" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="EventStatusFkWtf" Association="PrevuModel.EventStatusFkWtf">
-            <End Role="EventStatu" EntitySet="EventStatus" />
+            <End Role="EventStatu" EntitySet="EventStatus1" />
             <End Role="Opportunity" EntitySet="Opportunities" />
           </AssociationSet>
           <AssociationSet Name="Issues1" Association="PrevuModel.Issues1">
@@ -844,7 +844,7 @@
             <End Role="Objective" EntitySet="Objectives" />
           </AssociationSet>
           <AssociationSet Name="EventStatusFk" Association="PrevuModel.EventStatusFk">
-            <End Role="EventStatu" EntitySet="EventStatus" />
+            <End Role="EventStatu" EntitySet="EventStatus1" />
             <End Role="Event" EntitySet="Events" />
           </AssociationSet>
           <EntitySet Name="Departments" EntityType="PrevuModel.Department" />
@@ -943,7 +943,7 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Asks" Relationship="PrevuModel.AskStatusFk" FromRole="AskStatus" ToRole="Ask" />
         </EntityType>
-        <EntityType Name="AttendanceStatu">
+        <EntityType Name="AttendanceStatus">
           <Key>
             <PropertyRef Name="AttendanceStatusId" />
           </Key>
@@ -997,7 +997,7 @@
           <Property Type="Int32" Name="OwnerId" />
           <NavigationProperty Name="Staff" Relationship="PrevuModel.TheOwnerFkWtf" FromRole="Event" ToRole="Staff" />
         </EntityType>
-        <EntityType Name="EventStatu">
+        <EntityType Name="EventStatus">
           <Key>
             <PropertyRef Name="EventStatusId" />
           </Key>
@@ -1254,7 +1254,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AttendanceStatusFk">
-          <End Type="PrevuModel.AttendanceStatu" Role="AttendanceStatu" Multiplicity="1" />
+          <End Type="PrevuModel.AttendanceStatus" Role="AttendanceStatu" Multiplicity="1" />
           <End Type="PrevuModel.OpportunityActor" Role="OpportunityActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AttendanceStatu">
@@ -1266,7 +1266,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AttendingStatusFk">
-          <End Type="PrevuModel.AttendanceStatu" Role="AttendanceStatu" Multiplicity="1" />
+          <End Type="PrevuModel.AttendanceStatus" Role="AttendanceStatu" Multiplicity="1" />
           <End Type="PrevuModel.EventActor" Role="EventActor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AttendanceStatu">
@@ -1314,7 +1314,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="EventStatusFkWtf">
-          <End Type="PrevuModel.EventStatu" Role="EventStatu" Multiplicity="1" />
+          <End Type="PrevuModel.EventStatus" Role="EventStatu" Multiplicity="1" />
           <End Type="PrevuModel.Opportunity" Role="Opportunity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EventStatu">
@@ -1382,7 +1382,7 @@
           <End Type="PrevuModel.Objective" Role="Objective" Multiplicity="*" />
         </Association>
         <Association Name="EventStatusFk">
-          <End Type="PrevuModel.EventStatu" Role="EventStatu" Multiplicity="1" />
+          <End Type="PrevuModel.EventStatus" Role="EventStatu" Multiplicity="1" />
           <End Type="PrevuModel.Event" Role="Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EventStatu">
@@ -1509,8 +1509,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AttendanceStatus">
-            <EntityTypeMapping TypeName="PrevuModel.AttendanceStatu">
+          <EntitySetMapping Name="AttendanceStatus1">
+            <EntityTypeMapping TypeName="PrevuModel.AttendanceStatus">
               <MappingFragment StoreEntitySet="AttendanceStatus">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="AttendanceStatusId" ColumnName="AttendanceStatusId" />
@@ -1555,8 +1555,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EventStatus">
-            <EntityTypeMapping TypeName="PrevuModel.EventStatu">
+          <EntitySetMapping Name="EventStatus1">
+            <EntityTypeMapping TypeName="PrevuModel.EventStatus">
               <MappingFragment StoreEntitySet="EventStatus">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />

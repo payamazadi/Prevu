@@ -32,7 +32,7 @@ namespace Prevu.Models
         public Nullable<int> OwnerId { get; set; }
     
         public virtual ICollection<Event> Events { get; set; }
-        public virtual EventStatu EventStatu { get; set; }
+        public virtual EventStatus EventStatu { get; set; }
         public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
         public virtual Staff Staff { get; set; }
     }

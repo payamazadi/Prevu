@@ -12,9 +12,9 @@ namespace Prevu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AttendanceStatu
+    public partial class AttendanceStatus
     {
-        public AttendanceStatu()
+        public AttendanceStatus()
         {
             this.OpportunityActors = new HashSet<OpportunityActor>();
             this.EventActors = new HashSet<EventActor>();

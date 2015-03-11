@@ -20,7 +20,7 @@ namespace Prevu.Models
         public System.DateTime DateModified { get; set; }
     
         public virtual Actor Actor { get; set; }
-        public virtual AttendanceStatu AttendanceStatu { get; set; }
+        public virtual AttendanceStatus AttendanceStatu { get; set; }
         public virtual Opportunity Opportunity { get; set; }
     }
 }

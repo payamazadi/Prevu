@@ -147,7 +147,7 @@
     <Compile Include="Models\AskStatus.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AttendanceStatu.cs">
+    <Compile Include="Models\AttendanceStatus.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Department.cs">
@@ -162,7 +162,7 @@
     <Compile Include="Models\EventActorAsk.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EventStatu.cs">
+    <Compile Include="Models\EventStatus.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Issue.cs">

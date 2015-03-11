@@ -31,11 +31,11 @@ namespace Prevu.Models
         public DbSet<AskActor> AskActors { get; set; }
         public DbSet<Ask> Asks { get; set; }
         public DbSet<AskStatus> AskStatuses { get; set; }
-        public DbSet<AttendanceStatu> AttendanceStatus { get; set; }
+        public DbSet<AttendanceStatus> AttendanceStatus1 { get; set; }
         public DbSet<EventActorAsk> EventActorAsks { get; set; }
         public DbSet<EventActor> EventActors { get; set; }
         public DbSet<Event> Events { get; set; }
-        public DbSet<EventStatu> EventStatus { get; set; }
+        public DbSet<EventStatus> EventStatus1 { get; set; }
         public DbSet<Issue> Issues { get; set; }
         public DbSet<Objective> Objectives { get; set; }
         public DbSet<ObjectiveStatus> ObjectiveStatuses { get; set; }

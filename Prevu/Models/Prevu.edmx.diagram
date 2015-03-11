@@ -11,11 +11,11 @@
         <EntityTypeShape EntityType="PrevuModel.AskActor" Width="1.5" PointX="19.125" PointY="45.75" />
         <EntityTypeShape EntityType="PrevuModel.Ask" Width="1.5" PointX="15.375" PointY="44.25" />
         <EntityTypeShape EntityType="PrevuModel.AskStatus" Width="1.5" PointX="13.375" PointY="45" />
-        <EntityTypeShape EntityType="PrevuModel.AttendanceStatu" Width="1.5" PointX="19.625" PointY="53.125" />
+        <EntityTypeShape EntityType="PrevuModel.AttendanceStatus" Width="1.5" PointX="19.625" PointY="53.125" />
         <EntityTypeShape EntityType="PrevuModel.EventActorAsk" Width="1.5" PointX="17.375" PointY="48.75" />
         <EntityTypeShape EntityType="PrevuModel.EventActor" Width="1.5" PointX="17.5" PointY="51.625" />
         <EntityTypeShape EntityType="PrevuModel.Event" Width="1.5" PointX="15.75" PointY="51.625" />
-        <EntityTypeShape EntityType="PrevuModel.EventStatu" Width="1.5" PointX="17.25" PointY="55.75" />
+        <EntityTypeShape EntityType="PrevuModel.EventStatus" Width="1.5" PointX="17.25" PointY="55.75" />
         <EntityTypeShape EntityType="PrevuModel.Issue" Width="1.5" PointX="25.625" PointY="47.5" />
         <EntityTypeShape EntityType="PrevuModel.Objective" Width="1.5" PointX="23.625" PointY="45.125" />
         <EntityTypeShape EntityType="PrevuModel.ObjectiveStatus" Width="1.5" PointX="25.625" PointY="45" />

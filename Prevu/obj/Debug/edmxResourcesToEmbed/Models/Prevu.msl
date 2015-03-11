@@ -67,8 +67,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AttendanceStatus">
-      <EntityTypeMapping TypeName="PrevuModel.AttendanceStatu">
+    <EntitySetMapping Name="AttendanceStatus1">
+      <EntityTypeMapping TypeName="PrevuModel.AttendanceStatus">
         <MappingFragment StoreEntitySet="AttendanceStatus">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="AttendanceStatusId" ColumnName="AttendanceStatusId" />
@@ -113,8 +113,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EventStatus">
-      <EntityTypeMapping TypeName="PrevuModel.EventStatu">
+    <EntitySetMapping Name="EventStatus1">
+      <EntityTypeMapping TypeName="PrevuModel.EventStatus">
         <MappingFragment StoreEntitySet="EventStatus">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
