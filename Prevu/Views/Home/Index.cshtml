@@ -1,8 +1,19 @@
 ﻿@{
     ViewBag.Title = "Index";
+    BundleTable.Bundles.GetRegisteredBundles().Where(b => b.Path == "~/bundles/jquerydatepickercss").First().Include("~/Content/themes/base/jquery.ui.datepicker.css");
+    
 }
 
 <h2>Home</h2>
 
 Hello
 PWNED
+
+@{
+    /* Throwaway code for rendering a partial create form.
+    ViewData["EventStatusId"] = new SelectList("EventStatusId", "Name");
+    ViewData["OwnerId"] = new SelectList("OwnerId", "Name");
+    Html.RenderPartial("~/Views/Opportunity/Create.cshtml");
+     */
+}
+

@@ -331,7 +331,7 @@
     <Property Name="EndDate" Type="datetime" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
     <Property Name="OwnerId" Type="int" />
-    <Property Name="Importance" Type="varchar" MaxLength="45" />
+    <Property Name="Importance" Type="int" />
     <Property Name="EventStatusId" Type="int" Nullable="false" />
     <Property Name="Notes" Type="longtext" />
   </EntityType>

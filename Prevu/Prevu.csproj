@@ -125,7 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OpportunityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,12 +296,16 @@
       <DependentUpon>Prevu.edmx</DependentUpon>
       <LastGenOutput>Prevu.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\unicef.png" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.ui.core.js" />
+    <Content Include="Scripts\jquery.ui.core.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -329,6 +335,16 @@
     <Content Include="Views\Actor\Create.cshtml" />
     <Content Include="Views\Actor\Edit.cshtml" />
     <Content Include="Views\Actor\Delete.cshtml" />
+    <Content Include="Views\EventStatus\Index.cshtml" />
+    <Content Include="Views\EventStatus\Details.cshtml" />
+    <Content Include="Views\EventStatus\Create.cshtml" />
+    <Content Include="Views\EventStatus\Edit.cshtml" />
+    <Content Include="Views\EventStatus\Delete.cshtml" />
+    <Content Include="Views\Opportunity\Index.cshtml" />
+    <Content Include="Views\Opportunity\Details.cshtml" />
+    <Content Include="Views\Opportunity\Create.cshtml" />
+    <Content Include="Views\Opportunity\Edit.cshtml" />
+    <Content Include="Views\Opportunity\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

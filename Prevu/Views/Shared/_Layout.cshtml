@@ -6,6 +6,7 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
+        @Styles.Render("~/bundles/jquerydatepickercss")
         @Scripts.Render("~/bundles/modernizr")
         <style>
             @@media all {
@@ -53,6 +54,7 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jquerydatepickerjs")
         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -26,7 +26,7 @@ namespace Prevu.Models
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string Name { get; set; }
-        public string Importance { get; set; }
+        public Nullable<int> Importance { get; set; }
         public int EventStatusId { get; set; }
         public string Notes { get; set; }
         public Nullable<int> OwnerId { get; set; }

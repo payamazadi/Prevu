@@ -340,7 +340,7 @@
     <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="0" />
     <Property Type="DateTime" Name="EndDate" Precision="0" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="Importance" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Importance" />
     <Property Type="Int32" Name="EventStatusId" Nullable="false" />
     <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Events" Relationship="PrevuModel.TheOpportunityFk" FromRole="Opportunity" ToRole="Event" />

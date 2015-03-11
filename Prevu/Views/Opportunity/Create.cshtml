@@ -1,0 +1,99 @@
+﻿@model Prevu.Models.Opportunity
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Opportunity</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateCreated)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateCreated)
+            @Html.ValidationMessageFor(model => model.DateCreated)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateModified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateModified)
+            @Html.ValidationMessageFor(model => model.DateModified)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartDate)
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndDate)
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Importance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Importance)
+            @Html.ValidationMessageFor(model => model.Importance)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EventStatusId, "EventStatu")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EventStatusId", String.Empty)
+            @Html.ValidationMessageFor(model => model.EventStatusId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OwnerId, "Staff")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("OwnerId", String.Empty)
+            @Html.ValidationMessageFor(model => model.OwnerId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
