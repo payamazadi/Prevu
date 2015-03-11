@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b4d1d5ada0704da4ba90f456803393c2" Name="Diagram1" ZoomLevel="59">
+      <Diagram DiagramId="b4d1d5ada0704da4ba90f456803393c2" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="PrevuModel.ActorIssueOpinion" Width="1.5" PointX="22.125" PointY="49.625" />
         <EntityTypeShape EntityType="PrevuModel.Actor" Width="1.5" PointX="19.5" PointY="48.875" />
         <EntityTypeShape EntityType="PrevuModel.ActorType" Width="1.5" PointX="17.375" PointY="46.25" />

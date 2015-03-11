@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\ActorController.cs" />
+    <Compile Include="Controllers\ActorTypeController.cs" />
     <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OpportunityController.cs" />
@@ -345,6 +347,11 @@
     <Content Include="Views\Opportunity\Create.cshtml" />
     <Content Include="Views\Opportunity\Edit.cshtml" />
     <Content Include="Views\Opportunity\Delete.cshtml" />
+    <Content Include="Views\ActorType\Index.cshtml" />
+    <Content Include="Views\ActorType\Details.cshtml" />
+    <Content Include="Views\ActorType\Create.cshtml" />
+    <Content Include="Views\ActorType\Edit.cshtml" />
+    <Content Include="Views\ActorType\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
