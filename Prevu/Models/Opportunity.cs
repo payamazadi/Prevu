@@ -16,8 +16,8 @@ namespace Prevu.Models
     {
         public Opportunity()
         {
-            this.OpportunityActors = new HashSet<OpportunityActor>();
             this.Events = new HashSet<Event>();
+            this.OpportunityActors = new HashSet<OpportunityActor>();
         }
     
         public int OpportunityId { get; set; }
@@ -29,9 +29,11 @@ namespace Prevu.Models
         public string Importance { get; set; }
         public int EventStatusId { get; set; }
         public string Notes { get; set; }
+        public Nullable<int> OwnerId { get; set; }
     
-        public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual EventStatus EventStatu { get; set; }
+        public virtual EventStatu EventStatu { get; set; }
+        public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

@@ -125,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\ActorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -148,6 +147,12 @@
     <Compile Include="Models\AskStatus.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AttendanceStatu.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>Prevu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Event.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
@@ -157,7 +162,7 @@
     <Compile Include="Models\EventActorAsk.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EventStatus.cs">
+    <Compile Include="Models\EventStatu.cs">
       <DependentUpon>Prevu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Issue.cs">

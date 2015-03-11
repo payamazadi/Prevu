@@ -12,16 +12,16 @@ namespace Prevu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ActorIssueOpinion
+    public partial class Department
     {
-        public int ActorId { get; set; }
-        public int IssueId { get; set; }
-        public Nullable<int> OpinionId { get; set; }
-        public System.DateTime DateModified { get; set; }
-        public string Notes { get; set; }
+        public Department()
+        {
+            this.Staffs = new HashSet<Staff>();
+        }
     
-        public virtual Actor Actor { get; set; }
-        public virtual Issue Issue { get; set; }
-        public virtual Opinion Opinion { get; set; }
+        public int DepartmentId { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<Staff> Staffs { get; set; }
     }
 }

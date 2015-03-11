@@ -16,7 +16,6 @@ namespace Prevu.Models
     {
         public Event()
         {
-            this.EventActorAsks = new HashSet<EventActorAsk>();
             this.EventActors = new HashSet<EventActor>();
         }
     
@@ -30,9 +29,11 @@ namespace Prevu.Models
         public Nullable<int> Priority { get; set; }
         public int EventStatusId { get; set; }
         public string Notes { get; set; }
+        public Nullable<int> OwnerId { get; set; }
     
-        public virtual ICollection<EventActorAsk> EventActorAsks { get; set; }
         public virtual ICollection<EventActor> EventActors { get; set; }
         public virtual Opportunity Opportunity { get; set; }
+        public virtual EventStatu EventStatu { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

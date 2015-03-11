@@ -12,20 +12,18 @@ namespace Prevu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EventStatus
+    public partial class EventStatu
     {
-        public EventStatus()
+        public EventStatu()
         {
-            this.EventActors = new HashSet<EventActor>();
             this.Opportunities = new HashSet<Opportunity>();
-            this.OpportunityActors = new HashSet<OpportunityActor>();
+            this.Events = new HashSet<Event>();
         }
     
         public int EventStatusId { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<EventActor> EventActors { get; set; }
         public virtual ICollection<Opportunity> Opportunities { get; set; }
-        public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
     }
 }

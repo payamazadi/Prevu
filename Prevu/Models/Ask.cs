@@ -17,8 +17,8 @@ namespace Prevu.Models
         public Ask()
         {
             this.AskActors = new HashSet<AskActor>();
-            this.Objectives = new HashSet<Objective>();
             this.EventActorAsks = new HashSet<EventActorAsk>();
+            this.Objectives = new HashSet<Objective>();
         }
     
         public int AskId { get; set; }
@@ -31,9 +31,9 @@ namespace Prevu.Models
         public string Notes { get; set; }
     
         public virtual ICollection<AskActor> AskActors { get; set; }
-        public virtual ICollection<Objective> Objectives { get; set; }
-        public virtual AskStatus AskStatus { get; set; }
         public virtual ICollection<EventActorAsk> EventActorAsks { get; set; }
+        public virtual AskStatus AskStatus { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual ICollection<Objective> Objectives { get; set; }
     }
 }

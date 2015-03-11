@@ -12,16 +12,18 @@ namespace Prevu.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ActorIssueOpinion
+    public partial class AttendanceStatu
     {
-        public int ActorId { get; set; }
-        public int IssueId { get; set; }
-        public Nullable<int> OpinionId { get; set; }
-        public System.DateTime DateModified { get; set; }
-        public string Notes { get; set; }
+        public AttendanceStatu()
+        {
+            this.OpportunityActors = new HashSet<OpportunityActor>();
+            this.EventActors = new HashSet<EventActor>();
+        }
     
-        public virtual Actor Actor { get; set; }
-        public virtual Issue Issue { get; set; }
-        public virtual Opinion Opinion { get; set; }
+        public int AttendanceStatusId { get; set; }
+        public string Name { get; set; }
+    
+        public virtual ICollection<OpportunityActor> OpportunityActors { get; set; }
+        public virtual ICollection<EventActor> EventActors { get; set; }
     }
 }

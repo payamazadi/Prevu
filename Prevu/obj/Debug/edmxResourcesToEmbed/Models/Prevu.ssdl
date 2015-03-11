@@ -9,6 +9,8 @@
     <EntitySet Name="AskObjectives" EntityType="PrevuModel.Store.AskObjectives" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="Asks" EntityType="PrevuModel.Store.Asks" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="AskStatuses" EntityType="PrevuModel.Store.AskStatuses" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="AttendanceStatus" EntityType="PrevuModel.Store.AttendanceStatus" store:Type="Tables" Schema="prevu" />
+    <EntitySet Name="Departments" EntityType="PrevuModel.Store.Departments" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="EventActorAsks" EntityType="PrevuModel.Store.EventActorAsks" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="EventActors" EntityType="PrevuModel.Store.EventActors" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="Events" EntityType="PrevuModel.Store.Events" store:Type="Tables" Schema="prevu" />
@@ -23,10 +25,6 @@
     <AssociationSet Name="ActorFk" Association="PrevuModel.Store.ActorFk">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="AskActor" EntitySet="AskActor" />
-    </AssociationSet>
-    <AssociationSet Name="ActorFkWtf" Association="PrevuModel.Store.ActorFkWtf">
-      <End Role="Actors" EntitySet="Actors" />
-      <End Role="EventActorAsks" EntitySet="EventActorAsks" />
     </AssociationSet>
     <AssociationSet Name="ActorsFk" Association="PrevuModel.Store.ActorsFk">
       <End Role="Actors" EntitySet="Actors" />
@@ -52,17 +50,29 @@
       <End Role="AskStatuses" EntitySet="AskStatuses" />
       <End Role="Asks" EntitySet="Asks" />
     </AssociationSet>
+    <AssociationSet Name="AttendanceStatusFk" Association="PrevuModel.Store.AttendanceStatusFk">
+      <End Role="AttendanceStatus" EntitySet="AttendanceStatus" />
+      <End Role="OpportunityActors" EntitySet="OpportunityActors" />
+    </AssociationSet>
+    <AssociationSet Name="AttendingStatusFk" Association="PrevuModel.Store.AttendingStatusFk">
+      <End Role="AttendanceStatus" EntitySet="AttendanceStatus" />
+      <End Role="EventActors" EntitySet="EventActors" />
+    </AssociationSet>
     <AssociationSet Name="ChildFk" Association="PrevuModel.Store.ChildFk">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="ActorChildren" EntitySet="ActorChildren" />
     </AssociationSet>
-    <AssociationSet Name="EventFk" Association="PrevuModel.Store.EventFk">
-      <End Role="Events" EntitySet="Events" />
+    <AssociationSet Name="DepartmentFk" Association="PrevuModel.Store.DepartmentFk">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="EventActorFk" Association="PrevuModel.Store.EventActorFk">
+      <End Role="EventActors" EntitySet="EventActors" />
       <End Role="EventActorAsks" EntitySet="EventActorAsks" />
     </AssociationSet>
     <AssociationSet Name="EventStatusFk" Association="PrevuModel.Store.EventStatusFk">
       <End Role="EventStatus" EntitySet="EventStatus" />
-      <End Role="EventActors" EntitySet="EventActors" />
+      <End Role="Events" EntitySet="Events" />
     </AssociationSet>
     <AssociationSet Name="EventStatusFkWtf" Association="PrevuModel.Store.EventStatusFkWtf">
       <End Role="EventStatus" EntitySet="EventStatus" />
@@ -100,6 +110,10 @@
       <End Role="Actors" EntitySet="Actors" />
       <End Role="ActorChildren" EntitySet="ActorChildren" />
     </AssociationSet>
+    <AssociationSet Name="StaffFkwtf" Association="PrevuModel.Store.StaffFkwtf">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Opportunities" EntitySet="Opportunities" />
+    </AssociationSet>
     <AssociationSet Name="TheActorFk" Association="PrevuModel.Store.TheActorFk">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="EventActors" EntitySet="EventActors" />
@@ -112,10 +126,6 @@
       <End Role="Events" EntitySet="Events" />
       <End Role="EventActors" EntitySet="EventActors" />
     </AssociationSet>
-    <AssociationSet Name="TheEventStatusFkWtf" Association="PrevuModel.Store.TheEventStatusFkWtf">
-      <End Role="EventStatus" EntitySet="EventStatus" />
-      <End Role="OpportunityActors" EntitySet="OpportunityActors" />
-    </AssociationSet>
     <AssociationSet Name="TheOpportunityFk" Association="PrevuModel.Store.TheOpportunityFk">
       <End Role="Opportunities" EntitySet="Opportunities" />
       <End Role="Events" EntitySet="Events" />
@@ -127,6 +137,10 @@
     <AssociationSet Name="TheOwnerFk" Association="PrevuModel.Store.TheOwnerFk">
       <End Role="Staff" EntitySet="Staff" />
       <End Role="Issues" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="TheOwnerFkWtf" Association="PrevuModel.Store.TheOwnerFkWtf">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Events" EntitySet="Events" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActorChildren">
@@ -146,6 +160,7 @@
     <Property Name="IssueId" Type="int" Nullable="false" />
     <Property Name="OpinionId" Type="int" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
+    <Property Name="Notes" Type="longtext" />
   </EntityType>
   <EntityType Name="Actors">
     <Key>
@@ -175,6 +190,7 @@
     <Property Name="AskId" Type="int" Nullable="false" />
     <Property Name="ActorId" Type="int" Nullable="false" />
     <Property Name="OpinionId" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="longtext" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="AskObjectives">
@@ -205,26 +221,37 @@
     <Property Name="AskStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
   </EntityType>
+  <EntityType Name="AttendanceStatus">
+    <Key>
+      <PropertyRef Name="AttendanceStatusId" />
+    </Key>
+    <Property Name="AttendanceStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+  </EntityType>
   <EntityType Name="EventActorAsks">
     <Key>
-      <PropertyRef Name="EventId" />
-      <PropertyRef Name="ActorId" />
-      <PropertyRef Name="AskId" />
+      <PropertyRef Name="EventActorId" />
     </Key>
-    <Property Name="EventId" Type="int" Nullable="false" />
-    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="EventActorId" Type="int" Nullable="false" />
     <Property Name="AskId" Type="int" Nullable="false" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="EventActors">
     <Key>
-      <PropertyRef Name="EventId" />
-      <PropertyRef Name="ActorId" />
+      <PropertyRef Name="EventActorId" />
     </Key>
-    <Property Name="EventId" Type="int" Nullable="false" />
-    <Property Name="ActorId" Type="int" Nullable="false" />
-    <Property Name="EventStatusId" Type="int" Nullable="false" />
+    <Property Name="EventActorId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" />
+    <Property Name="ActorId" Type="int" />
+    <Property Name="AttendingStatusId" Type="int" Nullable="false" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Events">
@@ -238,6 +265,7 @@
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="OwnerId" Type="int" />
     <Property Name="Priority" Type="int" />
     <Property Name="EventStatusId" Type="int" Nullable="false" />
     <Property Name="Notes" Type="longtext" />
@@ -302,6 +330,7 @@
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="OwnerId" Type="int" />
     <Property Name="Importance" Type="varchar" MaxLength="45" />
     <Property Name="EventStatusId" Type="int" Nullable="false" />
     <Property Name="Notes" Type="longtext" />
@@ -313,7 +342,7 @@
     </Key>
     <Property Name="OpportunityId" Type="int" Nullable="false" />
     <Property Name="ActorId" Type="int" Nullable="false" />
-    <Property Name="EventStatusId" Type="int" />
+    <Property Name="AttendanceStatusId" Type="int" Nullable="false" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Staff">
@@ -321,6 +350,7 @@
       <PropertyRef Name="StaffId" />
     </Key>
     <Property Name="StaffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="int" />
     <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="45" />
     <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="45" />
     <Property Name="Email" Type="varchar" Nullable="false" MaxLength="500" />
@@ -337,18 +367,6 @@
         <PropertyRef Name="ActorId" />
       </Principal>
       <Dependent Role="AskActor">
-        <PropertyRef Name="ActorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ActorFkWtf">
-    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
-    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Actors">
-        <PropertyRef Name="ActorId" />
-      </Principal>
-      <Dependent Role="EventActorAsks">
         <PropertyRef Name="ActorId" />
       </Dependent>
     </ReferentialConstraint>
@@ -425,6 +443,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="AttendanceStatusFk">
+    <End Role="AttendanceStatus" Type="PrevuModel.Store.AttendanceStatus" Multiplicity="1" />
+    <End Role="OpportunityActors" Type="PrevuModel.Store.OpportunityActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceStatus">
+        <PropertyRef Name="AttendanceStatusId" />
+      </Principal>
+      <Dependent Role="OpportunityActors">
+        <PropertyRef Name="AttendanceStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AttendingStatusFk">
+    <End Role="AttendanceStatus" Type="PrevuModel.Store.AttendanceStatus" Multiplicity="1" />
+    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceStatus">
+        <PropertyRef Name="AttendanceStatusId" />
+      </Principal>
+      <Dependent Role="EventActors">
+        <PropertyRef Name="AttendingStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="ChildFk">
     <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
     <End Role="ActorChildren" Type="PrevuModel.Store.ActorChildren" Multiplicity="*" />
@@ -437,26 +479,38 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="EventFk">
-    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="1" />
-    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="*" />
+  <Association Name="DepartmentFk">
+    <End Role="Departments" Type="PrevuModel.Store.Departments" Multiplicity="0..1" />
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Events">
-        <PropertyRef Name="EventId" />
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventActorFk">
+    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="1" />
+    <End Role="EventActorAsks" Type="PrevuModel.Store.EventActorAsks" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="EventActors">
+        <PropertyRef Name="EventActorId" />
       </Principal>
       <Dependent Role="EventActorAsks">
-        <PropertyRef Name="EventId" />
+        <PropertyRef Name="EventActorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="EventStatusFk">
     <End Role="EventStatus" Type="PrevuModel.Store.EventStatus" Multiplicity="1" />
-    <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="EventStatus">
         <PropertyRef Name="EventStatusId" />
       </Principal>
-      <Dependent Role="EventActors">
+      <Dependent Role="Events">
         <PropertyRef Name="EventStatusId" />
       </Dependent>
     </ReferentialConstraint>
@@ -569,8 +623,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="StaffFkwtf">
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="Opportunities" Type="PrevuModel.Store.Opportunities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Opportunities">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TheActorFk">
-    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="1" />
+    <End Role="Actors" Type="PrevuModel.Store.Actors" Multiplicity="0..1" />
     <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Actors">
@@ -594,7 +660,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TheEventFk">
-    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="1" />
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="0..1" />
     <End Role="EventActors" Type="PrevuModel.Store.EventActors" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Events">
@@ -602,18 +668,6 @@
       </Principal>
       <Dependent Role="EventActors">
         <PropertyRef Name="EventId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TheEventStatusFkWtf">
-    <End Role="EventStatus" Type="PrevuModel.Store.EventStatus" Multiplicity="0..1" />
-    <End Role="OpportunityActors" Type="PrevuModel.Store.OpportunityActors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EventStatus">
-        <PropertyRef Name="EventStatusId" />
-      </Principal>
-      <Dependent Role="OpportunityActors">
-        <PropertyRef Name="EventStatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -649,6 +703,18 @@
         <PropertyRef Name="StaffId" />
       </Principal>
       <Dependent Role="Issues">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheOwnerFkWtf">
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="Events" Type="PrevuModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Events">
         <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>

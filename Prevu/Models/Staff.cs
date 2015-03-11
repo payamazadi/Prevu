@@ -18,6 +18,8 @@ namespace Prevu.Models
         {
             this.Asks = new HashSet<Ask>();
             this.Issues = new HashSet<Issue>();
+            this.Events = new HashSet<Event>();
+            this.Opportunities = new HashSet<Opportunity>();
         }
     
         public int StaffId { get; set; }
@@ -28,8 +30,12 @@ namespace Prevu.Models
         public string Phone2 { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateModified { get; set; }
+        public Nullable<int> DepartmentId { get; set; }
     
         public virtual ICollection<Ask> Asks { get; set; }
         public virtual ICollection<Issue> Issues { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<Opportunity> Opportunities { get; set; }
     }
 }

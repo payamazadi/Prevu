@@ -16,11 +16,11 @@ namespace Prevu.Models
     {
         public int OpportunityId { get; set; }
         public int ActorId { get; set; }
-        public Nullable<int> EventStatusId { get; set; }
+        public int AttendanceStatusId { get; set; }
         public System.DateTime DateModified { get; set; }
     
         public virtual Actor Actor { get; set; }
+        public virtual AttendanceStatu AttendanceStatu { get; set; }
         public virtual Opportunity Opportunity { get; set; }
-        public virtual EventStatus EventStatu { get; set; }
     }
 }

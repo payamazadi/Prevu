@@ -14,14 +14,12 @@ namespace Prevu.Models
     
     public partial class EventActorAsk
     {
-        public int EventId { get; set; }
-        public int ActorId { get; set; }
+        public int EventActorId { get; set; }
         public int AskId { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateModified { get; set; }
     
-        public virtual Actor Actor { get; set; }
         public virtual Ask Ask { get; set; }
-        public virtual Event Event { get; set; }
+        public virtual EventActor EventActor { get; set; }
     }
 }

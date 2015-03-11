@@ -17,6 +17,7 @@ namespace Prevu.Models
         public int AskId { get; set; }
         public int ActorId { get; set; }
         public int OpinionId { get; set; }
+        public string Notes { get; set; }
         public System.DateTime DateModified { get; set; }
     
         public virtual Actor Actor { get; set; }
