@@ -13,22 +13,7 @@
         <legend>Actor</legend>
 
         @Html.HiddenFor(model => model.ActorId)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DateCreated)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateCreated)
-            @Html.ValidationMessageFor(model => model.DateCreated)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DateModified)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DateModified)
-            @Html.ValidationMessageFor(model => model.DateModified)
-        </div>
+        @Html.HiddenFor(model => model.DateCreated)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -67,6 +52,8 @@
         </p>
     </fieldset>
 }
+
+@{Html.RenderPartial("~/Views/Shared/MemberActors/_Details.cshtml");}
 
 <div>
     @Html.ActionLink("Back to List", "Index")

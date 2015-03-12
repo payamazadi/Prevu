@@ -32,6 +32,12 @@ namespace Prevu.Controllers
             {
                 return HttpNotFound();
             }
+
+            var children = actor.ChildActors.Select(c => c.ActorId);
+            var possibleChildren = db.Actors.Where(a => a.Active == true && a.ActorId != actor.ActorId && !children.Contains(a.ActorId)).ToList();
+
+            ViewData["childrenCount"] = possibleChildren.Count;
+            ViewData["newChild"] = new SelectList(possibleChildren, "ActorId", "Name");
             return View(actor);
         }
 
@@ -40,7 +46,7 @@ namespace Prevu.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name");
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Type");
             return View();
         }
 
@@ -50,6 +56,9 @@ namespace Prevu.Controllers
         [HttpPost]
         public ActionResult Create(Actor actor)
         {
+            actor.DateCreated = DateTime.Now;
+            actor.DateModified = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Actors.Add(actor);
@@ -57,7 +66,7 @@ namespace Prevu.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Type", actor.ActorTypeId);
             return View(actor);
         }
 
@@ -71,7 +80,7 @@ namespace Prevu.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Type", actor.ActorTypeId);
             return View(actor);
         }
 
@@ -81,13 +90,14 @@ namespace Prevu.Controllers
         [HttpPost]
         public ActionResult Edit(Actor actor)
         {
+            actor.DateModified = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(actor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Name", actor.ActorTypeId);
+            ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Type", actor.ActorTypeId);
             return View(actor);
         }
 
@@ -114,6 +124,22 @@ namespace Prevu.Controllers
             db.Actors.Remove(actor);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult DeleteChild(int parent, int child)
+        {
+            db.Actors.Find(parent).ChildActors.Remove(db.Actors.Find(child));
+            db.SaveChanges();
+            return RedirectToAction("Details", new { id = parent });
+        }
+
+        [HttpPost, ActionName("CreateChild")]
+        public ActionResult CreateChild(int parent, int newChild)
+        {
+            db.Actors.Find(parent).ChildActors.Add(db.Actors.Find(newChild));
+            db.SaveChanges();
+            return RedirectToAction("Details", new { id = parent});
         }
 
         protected override void Dispose(bool disposing)

@@ -142,6 +142,10 @@
       <End Role="Staff" EntitySet="Staff" />
       <End Role="Events" EntitySet="Events" />
     </AssociationSet>
+    <AssociationSet Name="TheStaffFk" Association="PrevuModel.Store.TheStaffFk">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Objectives" EntitySet="Objectives" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActorChildren">
     <Key>
@@ -565,13 +569,13 @@
   </Association>
   <Association Name="ObjectiveStatusFk">
     <End Role="ObjectiveStatuses" Type="PrevuModel.Store.ObjectiveStatuses" Multiplicity="1" />
-    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="0..1" />
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ObjectiveStatuses">
         <PropertyRef Name="ObjectiveStatusId" />
       </Principal>
       <Dependent Role="Objectives">
-        <PropertyRef Name="ObjectiveId" />
+        <PropertyRef Name="ObjectiveStatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -715,6 +719,18 @@
         <PropertyRef Name="StaffId" />
       </Principal>
       <Dependent Role="Events">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheStaffFk">
+    <End Role="Staff" Type="PrevuModel.Store.Staff" Multiplicity="0..1" />
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Objectives">
         <PropertyRef Name="OwnerId" />
       </Dependent>
     </ReferentialConstraint>

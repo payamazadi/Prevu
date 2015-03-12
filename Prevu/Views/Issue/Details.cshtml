@@ -1,0 +1,64 @@
+﻿@model Prevu.Models.Issue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Issue</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateModified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateModified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Active)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Active)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InPurview)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InPurview)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Staff.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Staff.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes.ToString().Substring(0, 30))
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IssueId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

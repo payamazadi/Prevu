@@ -13,21 +13,14 @@
         <legend>ActorType</legend>
 
         @Html.HiddenFor(model => model.ActorTypeId)
+        @Html.HiddenFor(model => model.DateCreated)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DateCreated)
+            @Html.LabelFor(model => model.Type)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.DateCreated)
-            @Html.ValidationMessageFor(model => model.DateCreated)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
         </div>
 
         <p>

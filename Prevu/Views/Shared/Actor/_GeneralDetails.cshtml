@@ -1,0 +1,29 @@
+﻿@model Prevu.Models.Actor
+
+<h1 style="background-color:lightgreen">@Model.Name (@Model.ActorType.Type)</h1>
+<br />
+<fieldset>
+    <legend>Actor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateModified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateModified)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GlobalInfluence)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GlobalInfluence)
+    </div>
+
+</fieldset>

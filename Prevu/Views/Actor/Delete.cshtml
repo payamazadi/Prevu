@@ -7,51 +7,8 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Actor</legend>
+@{Html.RenderPartial("~/Views/Shared/Actor/_GeneralDetails.cshtml");}
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DateCreated)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateCreated)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DateModified)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateModified)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ActorType.Name)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ActorType.Name)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Active)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Active)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.GlobalInfluence)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.GlobalInfluence)
-    </div>
-</fieldset>
 @using (Html.BeginForm()) {
     <p>
         <input type="submit" value="Delete" /> |

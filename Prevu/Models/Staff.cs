@@ -20,6 +20,7 @@ namespace Prevu.Models
             this.Issues = new HashSet<Issue>();
             this.Events = new HashSet<Event>();
             this.Opportunities = new HashSet<Opportunity>();
+            this.Objectives = new HashSet<Objective>();
         }
     
         public int StaffId { get; set; }
@@ -37,5 +38,6 @@ namespace Prevu.Models
         public virtual Department Department { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Opportunity> Opportunities { get; set; }
+        public virtual ICollection<Objective> Objectives { get; set; }
     }
 }

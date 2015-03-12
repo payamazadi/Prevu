@@ -28,7 +28,7 @@
     <EntitySetMapping Name="ActorTypes">
       <EntityTypeMapping TypeName="PrevuModel.ActorType">
         <MappingFragment StoreEntitySet="ActorTypes">
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Name" />
           <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
           <ScalarProperty Name="ActorTypeId" ColumnName="ActorTypeId" />
         </MappingFragment>
@@ -135,22 +135,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Objectives">
-      <EntityTypeMapping TypeName="PrevuModel.Objective">
-        <MappingFragment StoreEntitySet="Objectives">
-          <ScalarProperty Name="Notes" ColumnName="Notes" />
-          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
-          <ScalarProperty Name="BlockedObjectiveId" ColumnName="BlockedObjectiveId" />
-          <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
-          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
-          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-          <ScalarProperty Name="IssueId" ColumnName="IssueId" />
-          <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ObjectiveStatuses">
       <EntityTypeMapping TypeName="PrevuModel.ObjectiveStatus">
         <MappingFragment StoreEntitySet="ObjectiveStatuses">
@@ -217,14 +201,6 @@
         <ScalarProperty Name="ActorId" ColumnName="ChildActorId" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AskObjectives" TypeName="PrevuModel.AskObjectives" StoreEntitySet="AskObjectives">
-      <EndProperty Name="Objective">
-        <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
-      </EndProperty>
-      <EndProperty Name="Ask">
-        <ScalarProperty Name="AskId" ColumnName="AskId" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="PrevuModel.Department">
         <MappingFragment StoreEntitySet="Departments">
@@ -233,5 +209,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Objectives">
+      <EntityTypeMapping TypeName="PrevuModel.Objective">
+        <MappingFragment StoreEntitySet="Objectives">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="BlockedObjectiveId" ColumnName="BlockedObjectiveId" />
+          <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+          <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AskObjectives" TypeName="PrevuModel.AskObjectives" StoreEntitySet="AskObjectives">
+      <EndProperty Name="Objective">
+        <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
+      </EndProperty>
+      <EndProperty Name="Ask">
+        <ScalarProperty Name="AskId" ColumnName="AskId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

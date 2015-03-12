@@ -37,12 +37,12 @@ namespace Prevu.Models
         public DbSet<Event> Events { get; set; }
         public DbSet<EventStatus> EventStatus1 { get; set; }
         public DbSet<Issue> Issues { get; set; }
-        public DbSet<Objective> Objectives { get; set; }
         public DbSet<ObjectiveStatus> ObjectiveStatuses { get; set; }
         public DbSet<Opinion> Opinions { get; set; }
         public DbSet<Opportunity> Opportunities { get; set; }
         public DbSet<OpportunityActor> OpportunityActors { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Objective> Objectives { get; set; }
     }
 }

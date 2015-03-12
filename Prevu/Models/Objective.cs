@@ -32,6 +32,7 @@ namespace Prevu.Models
     
         public virtual Issue Issue { get; set; }
         public virtual ObjectiveStatus ObjectiveStatus { get; set; }
+        public virtual Staff Staff { get; set; }
         public virtual ICollection<Ask> Asks { get; set; }
     }
 }

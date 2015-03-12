@@ -1,0 +1,15 @@
+﻿@model Prevu.Models.Actor
+@if(Model.ChildActors.Count > 0){
+    <table>
+        <tr><td>Name</td><td>Type</td><td>Active</td></tr>
+
+    @foreach(var child in Model.ChildActors)
+    {
+        <tr><td><b>@Html.ActionLink(child.Name, "Details", new { id = child.ActorId })</b></td><td><b>@child.ActorType.Type</b></td><td><b>@child.Active</b></td><td><span id="childActorDelete" style="display:none;">@Html.ActionLink("Remove", "DeleteChild", "Actor", new { parent = Model.ActorId, child = child.ActorId }, "")</span></td></tr>
+    }
+    </table>
+}
+else
+{
+    <p>No member actors.</p>
+}

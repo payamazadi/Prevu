@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Prevu.Models.Issue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InPurview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InPurview)
+        </td>
+        <td>
+            @item.Staff.FirstName @item.Staff.LastName (Owner)
+        </td>
+        <td>
+            
+        @if (item.Notes != null && item.Notes.Length != 0){
+            <p>@item.Notes.Substring(0, Math.Min(item.Notes.Length, 15))</p>
+        }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IssueId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IssueId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IssueId })
+        </td>
+    </tr>
+}
+
+</table>

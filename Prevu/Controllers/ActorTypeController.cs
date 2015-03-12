@@ -48,6 +48,8 @@ namespace Prevu.Controllers
         [HttpPost]
         public ActionResult Create(ActorType actortype)
         {
+            actortype.DateCreated = DateTime.Now;
+            
             if (ModelState.IsValid)
             {
                 db.ActorTypes.Add(actortype);

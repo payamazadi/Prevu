@@ -30,7 +30,7 @@ namespace Prevu.Models
         public string Notes { get; set; }
     
         public virtual ICollection<ActorIssueOpinion> ActorIssueOpinions { get; set; }
-        public virtual ICollection<Objective> Objectives { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual ICollection<Objective> Objectives { get; set; }
     }
 }

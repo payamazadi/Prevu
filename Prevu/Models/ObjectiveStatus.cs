@@ -14,9 +14,14 @@ namespace Prevu.Models
     
     public partial class ObjectiveStatus
     {
+        public ObjectiveStatus()
+        {
+            this.Objectives = new HashSet<Objective>();
+        }
+    
         public int ObjectiveStatusId { get; set; }
         public string Name { get; set; }
     
-        public virtual Objective Objective { get; set; }
+        public virtual ICollection<Objective> Objectives { get; set; }
     }
 }

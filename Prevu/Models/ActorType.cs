@@ -21,7 +21,7 @@ namespace Prevu.Models
     
         public int ActorTypeId { get; set; }
         public System.DateTime DateCreated { get; set; }
-        public string Name { get; set; }
+        public string Type { get; set; }
     
         public virtual ICollection<Actor> Actors { get; set; }
     }
