@@ -42,7 +42,10 @@
             @Html.DisplayFor(modelItem => item.InPurview)
         </td>
         <td>
-            @item.Staff.FirstName @item.Staff.LastName (Owner)
+            @if(item.Staff != null)
+            {
+                @item.Staff.FirstName @item.Staff.LastName <span>(Owner)</span>
+            }
         </td>
         <td>
             
