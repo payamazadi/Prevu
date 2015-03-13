@@ -47,7 +47,10 @@
             @Html.DisplayFor(modelItem => item.ObjectiveStatus.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Staff.FirstName)
+            @if(item.Staff != null)
+            {
+                @Html.DisplayFor(modelItem => item.Staff.FirstName)
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Notes)
