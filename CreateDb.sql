@@ -32,14 +32,14 @@ CREATE TABLE `Actors` (
   PRIMARY KEY (`ActorId`),
   KEY `ActorTypes_idx` (`ActorTypeId`),
   CONSTRAINT `ActorTypesFk` FOREIGN KEY (`ActorTypeId`) REFERENCES `ActorTypes` (`ActorTypeId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ActorTypes` (
   `ActorTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `DateCreated` datetime NOT NULL,
   `Name` varchar(255) NOT NULL,
   PRIMARY KEY (`ActorTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `AskActor` (
   `AskId` int(11) NOT NULL,
@@ -78,13 +78,13 @@ CREATE TABLE `Asks` (
   KEY `AskStatusFk_idx` (`AskStatusId`),
   CONSTRAINT `AskStatusFk` FOREIGN KEY (`AskStatusId`) REFERENCES `AskStatuses` (`AskStatusId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `OwnerFk` FOREIGN KEY (`OwnerId`) REFERENCES `Staff` (`StaffId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `AskStatuses` (
   `AskStatusId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`AskStatusId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `AttendanceStatus` (
   `AttendanceStatusId` int(11) NOT NULL AUTO_INCREMENT,
@@ -96,7 +96,7 @@ CREATE TABLE `Departments` (
   `DepartmentId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`DepartmentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `EventActorAsks` (
   `EventActorId` int(11) NOT NULL DEFAULT '0',
@@ -163,7 +163,7 @@ CREATE TABLE `Issues` (
   PRIMARY KEY (`IssueId`),
   KEY `TheOwnerFk_idx` (`OwnerId`),
   CONSTRAINT `TheOwnerFk` FOREIGN KEY (`OwnerId`) REFERENCES `Staff` (`StaffId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Objectives` (
   `ObjectiveId` int(11) NOT NULL AUTO_INCREMENT,
@@ -173,20 +173,22 @@ CREATE TABLE `Objectives` (
   `TargetDate` datetime DEFAULT NULL,
   `Name` varchar(255) NOT NULL,
   `ObjectiveStatusId` int(11) NOT NULL,
-  `BlockedObjectiveId` int(11) DEFAULT NULL,
   `OwnerId` int(11) DEFAULT NULL,
   `Notes` longtext,
   PRIMARY KEY (`ObjectiveId`),
   KEY `Issues_idx` (`IssueId`),
+  KEY `ObjectiveStatusFk_idx` (`ObjectiveStatusId`),
+  KEY `TheStaffFk_idx` (`OwnerId`),
   CONSTRAINT `Issues` FOREIGN KEY (`IssueId`) REFERENCES `Issues` (`IssueId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `ObjectiveStatusFk` FOREIGN KEY (`ObjectiveId`) REFERENCES `ObjectiveStatuses` (`ObjectiveStatusId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `ObjectiveStatusFk` FOREIGN KEY (`ObjectiveStatusId`) REFERENCES `ObjectiveStatuses` (`ObjectiveStatusId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `TheStaffFk` FOREIGN KEY (`OwnerId`) REFERENCES `Staff` (`StaffId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `ObjectiveStatuses` (
   `ObjectiveStatusId` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) NOT NULL,
   PRIMARY KEY (`ObjectiveStatusId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Opinions` (
   `OpinionId` int(11) NOT NULL AUTO_INCREMENT,
@@ -239,4 +241,4 @@ CREATE TABLE `Staff` (
   PRIMARY KEY (`StaffId`),
   KEY `DepartmentFk_idx` (`DepartmentId`),
   CONSTRAINT `DepartmentFk` FOREIGN KEY (`DepartmentId`) REFERENCES `Departments` (`DepartmentId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
