@@ -34,8 +34,10 @@ namespace Prevu.Controllers
             }
 
             var children = actor.ChildActors.Select(c => c.ActorId);
-            var possibleChildren = db.Actors.Where(a => a.Active == true && a.ActorId != actor.ActorId && !children.Contains(a.ActorId)).ToList();
+            var parents = actor.ParentActors.Select(c => c.ActorId);
 
+            var possibleChildren = db.Actors.Where(a => a.Active == true && a.ActorId != actor.ActorId && !children.Contains(a.ActorId) && !parents.Contains(a.ActorId)).ToList();
+            
             ViewData["childrenCount"] = possibleChildren.Count;
             ViewData["newChild"] = new SelectList(possibleChildren, "ActorId", "Name");
             return View(actor);

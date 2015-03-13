@@ -48,6 +48,7 @@
     <EntitySetMapping Name="Asks">
       <EntityTypeMapping TypeName="PrevuModel.Ask">
         <MappingFragment StoreEntitySet="Asks">
+          <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="AskStatusId" ColumnName="AskStatusId" />
@@ -62,7 +63,7 @@
     <EntitySetMapping Name="AskStatuses">
       <EntityTypeMapping TypeName="PrevuModel.AskStatus">
         <MappingFragment StoreEntitySet="AskStatuses">
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Name" />
           <ScalarProperty Name="AskStatusId" ColumnName="AskStatusId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -224,13 +225,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="AskObjectives" TypeName="PrevuModel.AskObjectives" StoreEntitySet="AskObjectives">
-      <EndProperty Name="Objective">
-        <ScalarProperty Name="ObjectiveId" ColumnName="ObjectiveId" />
-      </EndProperty>
-      <EndProperty Name="Ask">
-        <ScalarProperty Name="AskId" ColumnName="AskId" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

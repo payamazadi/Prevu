@@ -133,6 +133,7 @@
     <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IssueController.cs" />
+    <Compile Include="Controllers\ObjectiveAskController.cs" />
     <Compile Include="Controllers\ObjectiveController.cs" />
     <Compile Include="Controllers\ObjectiveStatusController.cs" />
     <Compile Include="Controllers\OpportunityController.cs" />
@@ -386,16 +387,17 @@
     <Content Include="Views\Objective\Create.cshtml" />
     <Content Include="Views\Objective\Edit.cshtml" />
     <Content Include="Views\Objective\Delete.cshtml" />
-    <Content Include="Views\Ask\Index.cshtml" />
-    <Content Include="Views\Ask\Details.cshtml" />
-    <Content Include="Views\Ask\Create.cshtml" />
-    <Content Include="Views\Ask\Edit.cshtml" />
-    <Content Include="Views\Ask\Delete.cshtml" />
     <Content Include="Views\AskStatus\Index.cshtml" />
     <Content Include="Views\AskStatus\Details.cshtml" />
     <Content Include="Views\AskStatus\Create.cshtml" />
     <Content Include="Views\AskStatus\Edit.cshtml" />
     <Content Include="Views\AskStatus\Delete.cshtml" />
+    <Content Include="Views\Ask\Index.cshtml" />
+    <Content Include="Views\Ask\Details.cshtml" />
+    <Content Include="Views\Ask\Create.cshtml" />
+    <Content Include="Views\Ask\Edit.cshtml" />
+    <Content Include="Views\Ask\Delete.cshtml" />
+    <Content Include="Views\ObjectiveAsk\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

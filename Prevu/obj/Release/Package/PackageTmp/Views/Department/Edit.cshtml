@@ -1,4 +1,4 @@
-﻿@model Prevu.Models.test
+﻿@model Prevu.Models.Department
 
 @{
     ViewBag.Title = "Edit";
@@ -10,14 +10,16 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>test</legend>
+        <legend>Department</legend>
+
+        @Html.HiddenFor(model => model.DepartmentId)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.idtest)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.idtest)
-            @Html.ValidationMessageFor(model => model.idtest)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <p>

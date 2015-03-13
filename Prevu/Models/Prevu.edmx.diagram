@@ -46,7 +46,7 @@
         <AssociationConnector Association="PrevuModel.TheOpportunityFkWtf" />
         <AssociationConnector Association="PrevuModel.ActorChildren" />
         <AssociationConnector Association="PrevuModel.EventStatusFk" />
-        <EntityTypeShape EntityType="PrevuModel.Department" Width="1.5" PointX="26.25" PointY="51.25" />
+        <EntityTypeShape EntityType="PrevuModel.Department" Width="1.5" PointX="26.625" PointY="51.25" />
         <AssociationConnector Association="PrevuModel.DepartmentFk" />
         <AssociationConnector Association="PrevuModel.TheOwnerFkWtf" />
         <AssociationConnector Association="PrevuModel.StaffFkwtf" />
@@ -54,7 +54,7 @@
         <AssociationConnector Association="PrevuModel.Issues1" />
         <AssociationConnector Association="PrevuModel.ObjectiveStatusFk" />
         <AssociationConnector Association="PrevuModel.TheStaffFk" />
-        <AssociationConnector Association="PrevuModel.AskObjectives" />
+        <AssociationConnector Association="PrevuModel.ObjectiveWtfFk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

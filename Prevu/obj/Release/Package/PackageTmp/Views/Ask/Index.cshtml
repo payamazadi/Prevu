@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Prevu.Models.Ask>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 id="AskCreateHeading">Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Objective @Html.DisplayNameFor(model => model.Objective.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TargetDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AskStatus.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink(item.Objective.Name, "Details", "Objective", new { id = item.Objective.ObjectiveId}, "")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TargetDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AskStatus.Status)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Ask", new { id=item.AskId }, "") |
+            @Html.ActionLink("Details", "Details", "Ask", new { id=item.AskId }, "") |
+            @Html.ActionLink("Delete", "Delete", "Ask", new { id=item.AskId }, "")
+        </td>
+    </tr>
+}
+
+</table>

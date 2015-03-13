@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #333;
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
@@ -24,7 +24,7 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: #0094ff;
     }
 
     a:hover {
@@ -105,7 +105,7 @@ h5, h6 {
 }
 
     .main-content {
-        background: url("../Images/accent.png") no-repeat;
+        /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
         padding-top: 30px;
     }
@@ -121,8 +121,10 @@ header .content-wrapper {
 footer {
     clear: both;
     background-color: #e2e2e2;
-    font-size: .8em;
     height: 100px;
+    
+    font-family: Arial;
+    font-size: 14px;
 }
 
 
@@ -130,7 +132,7 @@ footer {
 ----------------------------------------------------------*/
 .site-title {
     color: #c8c8c8;
-    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
+    font-family: Arial;
     font-size: 1.6em;
     margin: 0;
 }
@@ -200,7 +202,7 @@ ul#menu {
         }
 
         ul#menu li a:hover {
-            color: #333;
+            color: #0094ff;
             text-decoration: none;
         }
 
@@ -747,14 +749,16 @@ tr.pager td {
     /* footer
     ----------------------------------------------------------*/
     footer .float-left,
-    footer .float-right {
+    footer .float-right, .float-left p {
         float: none;
+        
     }
 
     footer {
         text-align: center;
         height: auto;
         padding: 10px 0;
+        
     }
 
         footer p {

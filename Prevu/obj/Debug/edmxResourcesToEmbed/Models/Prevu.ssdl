@@ -6,7 +6,6 @@
     <EntitySet Name="Actors" EntityType="PrevuModel.Store.Actors" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="ActorTypes" EntityType="PrevuModel.Store.ActorTypes" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="AskActor" EntityType="PrevuModel.Store.AskActor" store:Type="Tables" Schema="prevu" />
-    <EntitySet Name="AskObjectives" EntityType="PrevuModel.Store.AskObjectives" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="Asks" EntityType="PrevuModel.Store.Asks" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="AskStatuses" EntityType="PrevuModel.Store.AskStatuses" store:Type="Tables" Schema="prevu" />
     <EntitySet Name="AttendanceStatus" EntityType="PrevuModel.Store.AttendanceStatus" store:Type="Tables" Schema="prevu" />
@@ -41,10 +40,6 @@
     <AssociationSet Name="AskFkWtf" Association="PrevuModel.Store.AskFkWtf">
       <End Role="Asks" EntitySet="Asks" />
       <End Role="EventActorAsks" EntitySet="EventActorAsks" />
-    </AssociationSet>
-    <AssociationSet Name="AsksFk" Association="PrevuModel.Store.AsksFk">
-      <End Role="Asks" EntitySet="Asks" />
-      <End Role="AskObjectives" EntitySet="AskObjectives" />
     </AssociationSet>
     <AssociationSet Name="AskStatusFk" Association="PrevuModel.Store.AskStatusFk">
       <End Role="AskStatuses" EntitySet="AskStatuses" />
@@ -86,13 +81,13 @@
       <End Role="Issues" EntitySet="Issues" />
       <End Role="ActorIssueOpinion" EntitySet="ActorIssueOpinion" />
     </AssociationSet>
-    <AssociationSet Name="ObjectiveFk" Association="PrevuModel.Store.ObjectiveFk">
-      <End Role="Objectives" EntitySet="Objectives" />
-      <End Role="AskObjectives" EntitySet="AskObjectives" />
-    </AssociationSet>
     <AssociationSet Name="ObjectiveStatusFk" Association="PrevuModel.Store.ObjectiveStatusFk">
       <End Role="ObjectiveStatuses" EntitySet="ObjectiveStatuses" />
       <End Role="Objectives" EntitySet="Objectives" />
+    </AssociationSet>
+    <AssociationSet Name="ObjectiveWtfFk" Association="PrevuModel.Store.ObjectiveWtfFk">
+      <End Role="Objectives" EntitySet="Objectives" />
+      <End Role="Asks" EntitySet="Asks" />
     </AssociationSet>
     <AssociationSet Name="OpinionFk" Association="PrevuModel.Store.OpinionFk">
       <End Role="Opinions" EntitySet="Opinions" />
@@ -197,19 +192,12 @@
     <Property Name="Notes" Type="longtext" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="AskObjectives">
-    <Key>
-      <PropertyRef Name="AskId" />
-      <PropertyRef Name="ObjectiveId" />
-    </Key>
-    <Property Name="AskId" Type="int" Nullable="false" />
-    <Property Name="ObjectiveId" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="Asks">
     <Key>
       <PropertyRef Name="AskId" />
     </Key>
     <Property Name="AskId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectiveId" Type="int" Nullable="false" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="DateModified" Type="datetime" Nullable="false" />
     <Property Name="TargetDate" Type="datetime" />
@@ -422,18 +410,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AsksFk">
-    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="1" />
-    <End Role="AskObjectives" Type="PrevuModel.Store.AskObjectives" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Asks">
-        <PropertyRef Name="AskId" />
-      </Principal>
-      <Dependent Role="AskObjectives">
-        <PropertyRef Name="AskId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="AskStatusFk">
     <End Role="AskStatuses" Type="PrevuModel.Store.AskStatuses" Multiplicity="0..1" />
     <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="*" />
@@ -554,18 +530,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ObjectiveFk">
-    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="1" />
-    <End Role="AskObjectives" Type="PrevuModel.Store.AskObjectives" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Objectives">
-        <PropertyRef Name="ObjectiveId" />
-      </Principal>
-      <Dependent Role="AskObjectives">
-        <PropertyRef Name="ObjectiveId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="ObjectiveStatusFk">
     <End Role="ObjectiveStatuses" Type="PrevuModel.Store.ObjectiveStatuses" Multiplicity="1" />
     <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="*" />
@@ -575,6 +539,18 @@
       </Principal>
       <Dependent Role="Objectives">
         <PropertyRef Name="ObjectiveStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ObjectiveWtfFk">
+    <End Role="Objectives" Type="PrevuModel.Store.Objectives" Multiplicity="1" />
+    <End Role="Asks" Type="PrevuModel.Store.Asks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Objectives">
+        <PropertyRef Name="ObjectiveId" />
+      </Principal>
+      <Dependent Role="Asks">
+        <PropertyRef Name="ObjectiveId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

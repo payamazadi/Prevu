@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="prevuEntities-Web.config Connection String" description="prevuEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Prevu.csdl|res://*/Models.Prevu.ssdl|res://*/Models.Prevu.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=unicefadvocacy.org;user id=prevu;password=D3al3r0n;database=prevu;persistsecurityinfo=True&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\azadi\\SkyDrive\\Github\\Prevu\\Prevu\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='prevuEntities']/@connectionString" />
+  <parameter name="PrevuEntities-Web.config Connection String" description="PrevuEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Prevu.csdl|res://*/Models.Prevu.ssdl|res://*/Models.Prevu.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=unicefadvocacy.org;user id=prevu;password=D3al3r0n;database=Prevu;persistsecurityinfo=True&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\azadi\\SkyDrive\\Github\\Prevu\\Prevu\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PrevuEntities']/@connectionString" />
   </parameter>
 </parameters>

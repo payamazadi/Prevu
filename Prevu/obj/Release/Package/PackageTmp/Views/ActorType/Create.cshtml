@@ -1,4 +1,4 @@
-﻿@model Prevu.Models.test
+﻿@model Prevu.Models.ActorType
 
 @{
     ViewBag.Title = "Create";
@@ -10,14 +10,14 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>test</legend>
+        <legend>ActorType</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.idtest)
+            @Html.LabelFor(model => model.Type)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.idtest)
-            @Html.ValidationMessageFor(model => model.idtest)
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
         </div>
 
         <p>

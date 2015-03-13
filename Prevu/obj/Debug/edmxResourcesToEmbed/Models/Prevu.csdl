@@ -132,9 +132,9 @@
       <End Role="Staff" EntitySet="Staffs" />
       <End Role="Objective" EntitySet="Objectives" />
     </AssociationSet>
-    <AssociationSet Name="AskObjectives" Association="PrevuModel.AskObjectives">
-      <End Role="Ask" EntitySet="Asks" />
+    <AssociationSet Name="ObjectiveWtfFk" Association="PrevuModel.ObjectiveWtfFk">
       <End Role="Objective" EntitySet="Objectives" />
+      <End Role="Ask" EntitySet="Asks" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ActorIssueOpinion">
@@ -209,14 +209,15 @@
     <NavigationProperty Name="EventActorAsks" Relationship="PrevuModel.AskFkWtf" FromRole="Ask" ToRole="EventActorAsk" />
     <NavigationProperty Name="AskStatus" Relationship="PrevuModel.AskStatusFk" FromRole="Ask" ToRole="AskStatus" />
     <NavigationProperty Name="Staff" Relationship="PrevuModel.OwnerFk" FromRole="Ask" ToRole="Staff" />
-    <NavigationProperty Name="Objectives" Relationship="PrevuModel.AskObjectives" FromRole="Ask" ToRole="Objective" />
+    <Property Type="Int32" Name="ObjectiveId" Nullable="false" />
+    <NavigationProperty Name="Objective" Relationship="PrevuModel.ObjectiveWtfFk" FromRole="Ask" ToRole="Objective" />
   </EntityType>
   <EntityType Name="AskStatus">
     <Key>
       <PropertyRef Name="AskStatusId" />
     </Key>
     <Property Type="Int32" Name="AskStatusId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Asks" Relationship="PrevuModel.AskStatusFk" FromRole="AskStatus" ToRole="Ask" />
   </EntityType>
   <EntityType Name="AttendanceStatus">
@@ -684,7 +685,7 @@
     <NavigationProperty Name="Issue" Relationship="PrevuModel.Issues1" FromRole="Objective" ToRole="Issue" />
     <NavigationProperty Name="ObjectiveStatus" Relationship="PrevuModel.ObjectiveStatusFk" FromRole="Objective" ToRole="ObjectiveStatus" />
     <NavigationProperty Name="Staff" Relationship="PrevuModel.TheStaffFk" FromRole="Objective" ToRole="Staff" />
-    <NavigationProperty Name="Asks" Relationship="PrevuModel.AskObjectives" FromRole="Objective" ToRole="Ask" />
+    <NavigationProperty Name="Asks1" Relationship="PrevuModel.ObjectiveWtfFk" FromRole="Objective" ToRole="Ask" />
   </EntityType>
   <Association Name="Issues1">
     <End Type="PrevuModel.Issue" Role="Issue" Multiplicity="1" />
@@ -722,8 +723,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AskObjectives">
+  <Association Name="ObjectiveWtfFk">
+    <End Type="PrevuModel.Objective" Role="Objective" Multiplicity="1" />
     <End Type="PrevuModel.Ask" Role="Ask" Multiplicity="*" />
-    <End Type="PrevuModel.Objective" Role="Objective" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Objective">
+        <PropertyRef Name="ObjectiveId" />
+      </Principal>
+      <Dependent Role="Ask">
+        <PropertyRef Name="ObjectiveId" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

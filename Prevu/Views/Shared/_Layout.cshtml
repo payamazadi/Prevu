@@ -32,8 +32,12 @@
                     <nav>
                         
                         <ul id="menu">
-                            <span class="site-title" style="margin-right: 10px;">@Html.ActionLink("UNICEF Prevu", "Index", "Home")</span>
+                            <span class="site-title" style="margin-right: 80px;">@Html.ActionLink("Prévu", "Index", "Home")</span>
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Actors", "Index", "Actor")</li>
+                            <li>@Html.ActionLink("Issues", "Index", "Issue")</li>
+                            <li>@Html.ActionLink("Objectives", "Index", "Objective")</li>
+                            <li>@Html.ActionLink("Objective Overview", "Index", "ObjectiveAsk")</li>
                         </ul>
                     </nav>
                 </div>
@@ -48,7 +52,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - UNICEF</p>
+                    <p>&copy; @DateTime.Now.Year - UNICEF all rights reserved<br />Site by <b><a href="http://www.nspaceit.com">n-space IT, Inc.</a></b></p>
                 </div>
             </div>
         </footer>

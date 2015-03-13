@@ -1,0 +1,22 @@
+﻿
+
+<h1>Objective Overview</h1>
+<p></p>
+(Actor Filter) (Objective Filter) (Objective Status Filter) ....... 
+
+
+@foreach (dynamic hmm in ViewBag.Items){
+    <p> <b>@hmm.Issue.Name</b></p>
+    <p> ---@hmm.Objective.Name, status, owner, target date.</p>
+    <p> ---------@hmm.Ask.Name, status, owner, target date.</p>
+    <p> ------------------(actor1)</p>
+    <p> ------------------(actor2)</p>
+    <p> ------------------(...)</p>
+    <p> ------------------(actorN)</p>
+    <p> ---------(Another Ask..)</p>
+    <p> ------------------(actor1)</p>
+    <p> ------------------(...actorN)</p>
+    <p> ---Another Objective, status, owner</p>
+    <p> ---------(Another Ask..)</p>
+    <p> ------------------(actor1)</p>
+}

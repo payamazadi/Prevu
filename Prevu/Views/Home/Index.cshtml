@@ -5,15 +5,11 @@
 }
 
 <h2>Home</h2>
+<p>Welcome to Prévu, the UNICEF Advocacy Database!</p>
+<p>Use the menu links at the top to get started.</p>
 
-Hello
-PWNED
-
-@{
-    /* Throwaway code for rendering a partial create form.
-    ViewData["EventStatusId"] = new SelectList("EventStatusId", "Name");
-    ViewData["OwnerId"] = new SelectList("OwnerId", "Name");
-    Html.RenderPartial("~/Views/Opportunity/Create.cshtml");
-     */
-}
-
+Some settings:
+@Html.ActionLink("Staff", "Index", "Staff")
+@Html.ActionLink("Departments", "Index", "Department")
+@Html.ActionLink("Actor Types", "Index", "ActorType")
+@Html.ActionLink("Actor Types", "Index", "AttendanceStatus")
