@@ -54,8 +54,10 @@
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Notes)
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Notes.ToString().Substring(0, 30))
+    <div class="display-field">   
+        @if (Model.Notes != null && Model.Notes.Length != 0){
+            <p>@Model.Notes.Substring(0, Math.Min(Model.Notes.Length, 15))</p>
+        }
     </div>
 </fieldset>
 <p>

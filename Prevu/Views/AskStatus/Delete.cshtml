@@ -1,4 +1,4 @@
-﻿@model Prevu.Models.ObjectiveStatus
+﻿@model Prevu.Models.AskStatus
 
 @{
     ViewBag.Title = "Delete";
@@ -8,13 +8,13 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>ObjectiveStatus</legend>
+    <legend>AskStatus</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
+         @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Status)
+        @Html.DisplayFor(model => model.Name)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

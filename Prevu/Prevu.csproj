@@ -127,6 +127,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ActorController.cs" />
     <Compile Include="Controllers\ActorTypeController.cs" />
+    <Compile Include="Controllers\AskController.cs" />
+    <Compile Include="Controllers\AskStatusController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EventStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -384,6 +386,16 @@
     <Content Include="Views\Objective\Create.cshtml" />
     <Content Include="Views\Objective\Edit.cshtml" />
     <Content Include="Views\Objective\Delete.cshtml" />
+    <Content Include="Views\Ask\Index.cshtml" />
+    <Content Include="Views\Ask\Details.cshtml" />
+    <Content Include="Views\Ask\Create.cshtml" />
+    <Content Include="Views\Ask\Edit.cshtml" />
+    <Content Include="Views\Ask\Delete.cshtml" />
+    <Content Include="Views\AskStatus\Index.cshtml" />
+    <Content Include="Views\AskStatus\Details.cshtml" />
+    <Content Include="Views\AskStatus\Create.cshtml" />
+    <Content Include="Views\AskStatus\Edit.cshtml" />
+    <Content Include="Views\AskStatus\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

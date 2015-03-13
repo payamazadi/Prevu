@@ -138,7 +138,7 @@
     <EntitySetMapping Name="ObjectiveStatuses">
       <EntityTypeMapping TypeName="PrevuModel.ObjectiveStatus">
         <MappingFragment StoreEntitySet="ObjectiveStatuses">
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Name" />
           <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -214,7 +214,6 @@
         <MappingFragment StoreEntitySet="Objectives">
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
-          <ScalarProperty Name="BlockedObjectiveId" ColumnName="BlockedObjectiveId" />
           <ScalarProperty Name="ObjectiveStatusId" ColumnName="ObjectiveStatusId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />

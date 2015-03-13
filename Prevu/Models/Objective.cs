@@ -26,7 +26,6 @@ namespace Prevu.Models
         public Nullable<System.DateTime> TargetDate { get; set; }
         public string Name { get; set; }
         public int ObjectiveStatusId { get; set; }
-        public Nullable<int> BlockedObjectiveId { get; set; }
         public Nullable<int> OwnerId { get; set; }
         public string Notes { get; set; }
     

@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="PrevuModel.Event" Width="1.5" PointX="15.75" PointY="51.625" />
         <EntityTypeShape EntityType="PrevuModel.EventStatus" Width="1.5" PointX="17.25" PointY="55.75" />
         <EntityTypeShape EntityType="PrevuModel.Issue" Width="1.5" PointX="25.625" PointY="47.5" />
-        <EntityTypeShape EntityType="PrevuModel.ObjectiveStatus" Width="1.5" PointX="23.625" PointY="46.375" />
+        <EntityTypeShape EntityType="PrevuModel.ObjectiveStatus" Width="1.5" PointX="23.5" PointY="46" />
         <EntityTypeShape EntityType="PrevuModel.Opinion" Width="1.5" PointX="21.5" PointY="46.625" />
         <EntityTypeShape EntityType="PrevuModel.Opportunity" Width="1.5" PointX="21.625" PointY="53" />
         <EntityTypeShape EntityType="PrevuModel.OpportunityActor" Width="1.5" PointX="24.25" PointY="51" />

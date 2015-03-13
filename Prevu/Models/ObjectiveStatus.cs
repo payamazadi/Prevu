@@ -20,7 +20,7 @@ namespace Prevu.Models
         }
     
         public int ObjectiveStatusId { get; set; }
-        public string Name { get; set; }
+        public string Status { get; set; }
     
         public virtual ICollection<Objective> Objectives { get; set; }
     }

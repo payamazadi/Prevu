@@ -41,7 +41,7 @@ namespace Prevu.Controllers
         public ActionResult Create()
         {
             ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "Name");
-            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Name");
+            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Status");
             ViewBag.OwnerId = new SelectList(db.Staffs, "StaffId", "FirstName");
             return View();
         }
@@ -52,6 +52,9 @@ namespace Prevu.Controllers
         [HttpPost]
         public ActionResult Create(Objective objective)
         {
+            objective.DateCreated = DateTime.Now;
+            objective.DateModified = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Objectives.Add(objective);
@@ -60,7 +63,7 @@ namespace Prevu.Controllers
             }
 
             ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "Name", objective.IssueId);
-            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Name", objective.ObjectiveStatusId);
+            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Status", objective.ObjectiveStatusId);
             ViewBag.OwnerId = new SelectList(db.Staffs, "StaffId", "FirstName", objective.OwnerId);
             return View(objective);
         }
@@ -70,13 +73,14 @@ namespace Prevu.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+
             Objective objective = db.Objectives.Find(id);
             if (objective == null)
             {
                 return HttpNotFound();
             }
             ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "Name", objective.IssueId);
-            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Name", objective.ObjectiveStatusId);
+            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Status", objective.ObjectiveStatusId);
             ViewBag.OwnerId = new SelectList(db.Staffs, "StaffId", "FirstName", objective.OwnerId);
             return View(objective);
         }
@@ -87,6 +91,7 @@ namespace Prevu.Controllers
         [HttpPost]
         public ActionResult Edit(Objective objective)
         {
+            objective.DateModified = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(objective).State = EntityState.Modified;
@@ -94,7 +99,7 @@ namespace Prevu.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "Name", objective.IssueId);
-            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Name", objective.ObjectiveStatusId);
+            ViewBag.ObjectiveStatusId = new SelectList(db.ObjectiveStatuses, "ObjectiveStatusId", "Status", objective.ObjectiveStatusId);
             ViewBag.OwnerId = new SelectList(db.Staffs, "StaffId", "FirstName", objective.OwnerId);
             return View(objective);
         }

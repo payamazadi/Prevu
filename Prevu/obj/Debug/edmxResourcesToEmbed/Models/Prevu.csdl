@@ -303,7 +303,7 @@
       <PropertyRef Name="ObjectiveStatusId" />
     </Key>
     <Property Type="Int32" Name="ObjectiveStatusId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Objectives" Relationship="PrevuModel.ObjectiveStatusFk" FromRole="ObjectiveStatus" ToRole="Objective" />
   </EntityType>
   <EntityType Name="Opinion">
@@ -679,7 +679,6 @@
     <Property Type="DateTime" Name="TargetDate" Precision="0" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Type="Int32" Name="ObjectiveStatusId" Nullable="false" />
-    <Property Type="Int32" Name="BlockedObjectiveId" />
     <Property Type="Int32" Name="OwnerId" />
     <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Issue" Relationship="PrevuModel.Issues1" FromRole="Objective" ToRole="Issue" />

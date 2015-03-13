@@ -95,7 +95,7 @@ namespace Prevu.Controllers
             {
                 db.Entry(actor).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = actor.ActorId });
             }
             ViewBag.ActorTypeId = new SelectList(db.ActorTypes, "ActorTypeId", "Type", actor.ActorTypeId);
             return View(actor);

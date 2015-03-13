@@ -305,7 +305,6 @@
     <Property Name="TargetDate" Type="datetime" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="ObjectiveStatusId" Type="int" Nullable="false" />
-    <Property Name="BlockedObjectiveId" Type="int" />
     <Property Name="OwnerId" Type="int" />
     <Property Name="Notes" Type="longtext" />
   </EntityType>
